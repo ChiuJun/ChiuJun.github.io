@@ -4,6 +4,83 @@
   
     
     <entry>
+      <title>Front-matter介绍</title>
+      <link href="/2020/03/24/front-matter-jie-shao/"/>
+      <url>/2020/03/24/front-matter-jie-shao/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md" target="_blank" rel="noopener">摘录自hexo-theme-matery/README_CN.md</a></p><h2 id="文章-Front-matter-介绍"><a href="#文章-Front-matter-介绍" class="headerlink" title="文章 Front-matter 介绍"></a>文章 Front-matter 介绍</h2><h3 id="Front-matter-选项详解"><a href="#Front-matter-选项详解" class="headerlink" title="Front-matter 选项详解"></a>Front-matter 选项详解</h3><p><code>Front-matter</code> 选项中的所有内容均为<strong>非必填</strong>的。但我仍然建议至少填写 <code>title</code> 和 <code>date</code> 的值。</p><table><thead><tr><th>配置选项</th><th>默认值</th><th>描述</th></tr></thead><tbody><tr><td>title</td><td><code>Markdown</code> 的文件标题</td><td>文章标题，强烈建议填写此选项</td></tr><tr><td>date</td><td>文件创建时的日期时间</td><td>发布时间，强烈建议填写此选项，且最好保证全局唯一</td></tr><tr><td>author</td><td>根 <code>_config.yml</code> 中的 <code>author</code></td><td>文章作者</td></tr><tr><td>img</td><td><code>featureImages</code> 中的某个值</td><td>文章特征图，推荐使用图床(腾讯云、七牛云、又拍云等)来做图片的路径.如: <code>http://xxx.com/xxx.jpg</code></td></tr><tr><td>top</td><td><code>true</code></td><td>推荐文章（文章是否置顶），如果 <code>top</code> 值为 <code>true</code>，则会作为首页推荐文章</td></tr><tr><td>cover</td><td><code>false</code></td><td><code>v1.0.2</code>版本新增，表示该文章是否需要加入到首页轮播封面中</td></tr><tr><td>coverImg</td><td>无</td><td><code>v1.0.2</code>版本新增，表示该文章在首页轮播封面需要显示的图片路径，如果没有，则默认使用文章的特色图片</td></tr><tr><td>password</td><td>无</td><td>文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 <code>password</code> 的值，该值必须是用 <code>SHA256</code> 加密后的密码，防止被他人识破。前提是在主题的 <code>config.yml</code> 中激活了 <code>verifyPassword</code> 选项</td></tr><tr><td>toc</td><td><code>true</code></td><td>是否开启 TOC，可以针对某篇文章单独关闭 TOC 的功能。前提是在主题的 <code>config.yml</code> 中激活了 <code>toc</code> 选项</td></tr><tr><td>mathjax</td><td><code>false</code></td><td>是否开启数学公式支持 ，本文章是否开启 <code>mathjax</code>，且需要在主题的 <code>_config.yml</code> 文件中也需要开启才行</td></tr><tr><td>summary</td><td>无</td><td>文章摘要，自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要</td></tr><tr><td>categories</td><td>无</td><td>文章分类，本主题的分类表示宏观上大的分类，只建议一篇文章一个分类</td></tr><tr><td>tags</td><td>无</td><td>文章标签，一篇文章可以多个标签</td></tr><tr><td>keywords</td><td>文章标题</td><td>文章关键字，SEO 时需要</td></tr><tr><td>reprintPolicy</td><td>cc_by</td><td>文章转载规则， 可以是 cc_by, cc_by_nd, cc_by_sa, cc_by_nc, cc_by_nc_nd, cc_by_nc_sa, cc0, noreprint 或 pay 中的一个</td></tr></tbody></table><blockquote><p><strong>注意</strong>:</p><ol><li>如果 <code>img</code> 属性不填写的话，文章特色图会根据文章标题的 <code>hashcode</code> 的值取余，然后选取主题中对应的特色图片，从而达到让所有文章都的特色图<strong>各有特色</strong>。</li><li><code>date</code> 的值尽量保证每篇文章是唯一的，因为本主题中 <code>Gitalk</code> 和 <code>Gitment</code> 识别 <code>id</code> 是通过 <code>date</code> 的值来作为唯一标识的。</li><li>如果要对文章设置阅读验证密码的功能，不仅要在 Front-matter 中设置采用了 SHA256 加密的 password 的值，还需要在主题的 <code>_config.yml</code> 中激活了配置。有些在线的 SHA256 加密的地址，可供你使用：<a href="http://tool.oschina.net/encrypt?type=2" target="_blank" rel="noopener">开源中国在线工具</a>、<a href="http://encode.chahuo.com/" target="_blank" rel="noopener">chahuo</a>、<a href="http://tool.chinaz.com/tools/hash.aspx" target="_blank" rel="noopener">站长工具</a>。</li><li>您可以在文章md文件的 front-matter 中指定 reprintPolicy 来给单个文章配置转载规则</li></ol></blockquote><p>以下为文章的 <code>Front-matter</code> 示例。</p><h3 id="最简示例"><a href="#最简示例" class="headerlink" title="最简示例"></a>最简示例</h3><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token punctuation">---</span><span class="token key atrule">title</span><span class="token punctuation">:</span> typora<span class="token punctuation">-</span>vue<span class="token punctuation">-</span>theme主题介绍<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-07 09:25:00</span><span class="token punctuation">---</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="最全示例"><a href="#最全示例" class="headerlink" title="最全示例"></a>最全示例</h3><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token punctuation">---</span><span class="token key atrule">title</span><span class="token punctuation">:</span> typora<span class="token punctuation">-</span>vue<span class="token punctuation">-</span>theme主题介绍<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2018-09-07 09:25:00</span><span class="token key atrule">author</span><span class="token punctuation">:</span> 赵奇<span class="token key atrule">img</span><span class="token punctuation">:</span> /source/images/xxx.jpg<span class="token key atrule">top</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span class="token key atrule">cover</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span class="token key atrule">coverImg</span><span class="token punctuation">:</span> /images/1.jpg<span class="token key atrule">password</span><span class="token punctuation">:</span> 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92<span class="token key atrule">toc</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span class="token key atrule">mathjax</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span class="token key atrule">summary</span><span class="token punctuation">:</span> 这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要<span class="token key atrule">categories</span><span class="token punctuation">:</span> Markdown<span class="token key atrule">tags</span><span class="token punctuation">:</span>  <span class="token punctuation">-</span> Typora  <span class="token punctuation">-</span> Markdown<span class="token punctuation">---</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Refer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> 摘录 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>写给学弟学妹</title>
+      <link href="/2020/03/24/xie-gei-xue-di-xue-mei/"/>
+      <url>/2020/03/24/xie-gei-xue-di-xue-mei/</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于数据结构与算法竞赛的一些想法"><a href="#关于数据结构与算法竞赛的一些想法" class="headerlink" title="关于数据结构与算法竞赛的一些想法"></a>关于数据结构与算法竞赛的一些想法</h1><p>各位萌新or大佬<br>原本是想自己写一点的，想来想去，还是引用陈越姥姥在中国大学MOOC上开设的<a href="https://www.icourse163.org/course/ZJU-93001" target="_blank" rel="noopener">数据结构</a>课程的新学期寄语给你们吧</p><p>网络上各种非常棒的帖子非常多，蕴含着前辈的智慧和对后来者的期盼，我又何必费劲巴拉去写出狗屁不通的东西呢。总之我想对你说的是，数据结构与基本的算法分析能力是万丈高楼的基础，基础不扎实，或许你可以继续有所建树，但是<strong>终究会成为限制你的天花板</strong>。不管你对这方面有没有兴趣，都需要去学习这门课程，而兴趣浓厚的同学可以继续探究。那么，该如何深入呢？进行理论研究在目前的情况下是不现实的，因为咋们学习消化完这门课程之后，连门都没入啊。何况进行理论研究还需要<strong>非常棒的数学基础</strong>与逻辑分析与抽象的能力，还有其他的计算机相关学科的知识。</p><p>那还有没有其他方式可以让我继续接触这块奇妙的领域？你好，有的！<strong>算法竞赛</strong> </p><p>这是途径之一，其中最著名的而且含金量最高的非<strong>ACM</strong>莫属（全称ACM国际大学生程序设计竞赛 / International Collegiate Programming Contest）</p><p>含金量有多高呢，拿西安电子科技大学的<a href="https://cs.xidian.edu.cn/html/notice/2108.html" target="_blank" rel="noopener">优研计划</a>来说，入营资格：非985/211院校的本科生需要在<strong>高水平学科竞赛</strong>中获奖或获得高水平研究成果</p><p>其中一条便是<strong>ACM/ICPC国际大学生程序设计竞赛亚洲区分站赛金奖和银奖获奖学生</strong></p><p>如果你成为优秀学员，考研是可以优先录取的哦。（据不可靠传言，是国家线即可</p><p>就算在认真准备之后，你没有获奖，我相信你一定不会后悔准备的过程与花费其中的精力的，相信我！（不过像我这样没有好好准备的当然会后悔/(ㄒoㄒ)/~~</p><p>作为弱校，我们也在<del>积极参与其中</del>（摸鱼），如果你对这方便有兴趣的话，我们正在筹建校队，欢迎你加入我们。</p><p>最后我想说的是，这是一件投入产出比比较低的事情，短期收益或许非常低。<strong>如果你耐不住寂寞，不要轻易入坑</strong></p><p>接下来是为大家布置的<strong>任务</strong>，如果在接下来两周，你能完成<a href="https://www.icourse163.org/course/ZJU-93001" target="_blank" rel="noopener">该课程</a>中<strong>前两周的内容</strong>并且完成<strong>相应的编程习题</strong>的话，我们的队伍需要你这样对代码充满热情的选手！</p><p>完成任务之后你可以将课程平台相关信息截图发送至我们的邮箱 <a href="mailto:niticpc@163.com">niticpc@163.com</a></p><p>下面是分割线啦，建议大家先阅读下面的”新学期寄语”之后，再阅读<a href="https://zhuanlan.zhihu.com/p/29598587" target="_blank" rel="noopener">关于ACM竞赛你需要了解的一些东西</a>与<a href="https://www.zhihu.com/question/68073393" target="_blank" rel="noopener">相关问题</a>（只是举个栗子，就这样</p><p>感谢大家的阅读（累~</p><blockquote><p>【数据结构】新学期寄语</p><p>新学期马上就开始了，你准备好了吗？^_^</p><p>如果你学过翁恺老师的“C语言程序设计”并且被他的期末考试虐到心塞，“陈越姥姥”跟你握&gt;个手 —— 咱们是同学啊！（刚学完C就教数据结构我也是醉了……）如果你读过高等教育出版&gt;社出的《C语言程序设计（第2版）》这本教材，何钦铭老师跟你握个手 —— 写这本书不容&gt; 易，欢迎多提意见，挑错有奖啊！话说第3版刚出来，要不要去看看…… ^_^</p><p>神马？两次握手都够不着？？？</p><p>那……</p><p>其实……</p><p>一点关系都没有啦！^_^</p><p>“数据结构”其实并不依赖于任何一种编程语言，这门课讲的是有效解决问题的方法和原理，&gt;编程语言是实现这些方法的工具而已。我们的课后练习平台拼题A（<a href="https://pintia.cn/上有《中国大学MOOC-陈越、何钦铭-数据结构-2019夏》习题集）提供了三十多种编程语言的编译器/解释器：gcc、g++、clang、clang++、octave、openjdk、python" target="_blank" rel="noopener">https://pintia.cn/上有《中国大学MOOC-陈越、何钦铭-数据结构-2019夏》习题集）提供了三十多种编程语言的编译器/解释器：gcc、g++、clang、clang++、octave、openjdk、python</a> 2、python 3、ruby、bash、cat、clisp、fpc、gfortran、go、ghc、lua、luajit、mcs、node、ocamlc、php、perl、awk、dmd、racket、valac、vbnc、kotlinc、swiftc、&gt; &gt; &gt; &gt; gfortran、octave —— 你只要会用其中任何一种，就可以下课刷题玩啦~</p><p>学过一门编程语言，你是否大概习惯了计算机的思维方式呢？这就像刚入门的泥瓦匠，学会了如何砌一堵坚实的矮墙，能成功砌起一圈猪圈并且因为一群猪都拱它不倒而暗自欣喜（</p><p>总感觉哪里不对，谁是猪……）。而学习数据结构，就像学习构造更复杂建筑的原理，教你如何盖一座精巧的小型别墅，麻雀虽小但五脏俱全。今后如果你有兴趣了解建筑摩天大厦的技术，建议学习“软件工程”，学会如何把一个团队的人组织在一起，有条不紊地完成一个百万行以上代码量的软件产品。</p><p>要学好这门课，你要有每周投入8小时（或者更多）的决心，其中听课只占一小部分 —— 每次讲课的时间一般只有1小时左右，重要的是课后的练习。光说不练嘴把势，只了解原理是远远不够的，你必须在实践中去深刻体会每一个概念的运用，才能真正知道经典的数据结构为什么存在、以及在什么情况下可以最好地解决什么样的问题。</p><p>话说翁恺（主讲“C语言程序设计”、“Java语言程序设计”）、何钦铭（主讲“C语言程序设计”、“数据结构与算法”）、陈越（主讲“数据结构与算法”、“软件工程”）曾经于2013年参加了浙江大学的“ACM竞赛”，这个学生们眼中恐怖的黄金组合给自己的队伍取名“135队”，欢乐地跟自己的学生们一起抢气球玩，最后以2个气球的成绩排到了三等奖的队伍里（搞笑的详细经过参见“陈越姥姥”新浪博文：<a href="https://weibo.com/p/1001603845676948658364）——" target="_blank" rel="noopener">https://weibo.com/p/1001603845676948658364）——</a> 这个故事告诉我们，如果你学习的目标是获得优秀证书、在程序设计竞赛中获得好成绩、或者在找工作的时候通过PAT获得顶级企业的应聘机会，只有理论基础是不够的 —— 讲理论能拼得过我们仨不？要在实战中取得好成绩，你还需要过人的熟练编程及调试能力、扎实的英语阅读能力。所以为了帮你获得这些能力，我们会布置一定量的课后编程题目，有些是中文、有些是英文，部分是PAT真题，希望你安排出充足的时间、运起洪荒之力练习。</p><p>如果你觉得洪荒之力都不够，慌不要慌，我们还特意设计了“小白专场”系列，手把手教小白如何将解决问题的抽象算法用具体的C语言代码实现。同时我们还将提供更多的源代码（C语言）、以及课后讨论题的参考答案。</p><p>所谓“万事开头难”，但是不要怕，现在的大侠都是从勤奋的小白开始的，慢慢总会入门哒！</p><p>新学期马上开始了，你准备好了吗？^_^</p></blockquote><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> idea </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>NIT教务系统修复插件</title>
+      <link href="/2020/03/24/nit-jiao-wu-xi-tong-xiu-fu-cha-jian/"/>
+      <url>/2020/03/24/nit-jiao-wu-xi-tong-xiu-fu-cha-jian/</url>
+      
+        <content type="html"><![CDATA[<h2 id="NIT教务系统修复插件"><a href="#NIT教务系统修复插件" class="headerlink" title="NIT教务系统修复插件"></a>NIT教务系统修复插件</h2><p>解决非IE内核访问教务处出现无法创建对象、权限认证失败等问题。<br>有问题请联系<a href="mailto:jiabi@nit.edu.cn">jiabi@nit.edu.cn</a></p><h4 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：</h4><p><img src="https://github.com/ChiuJun/nit_jw_repair/blob/master/img/demo.jpg" alt=""></p><h4 id="使用指南："><a href="#使用指南：" class="headerlink" title="使用指南："></a>使用指南：</h4><p>1、下载<a href="https://github.com/JiaBiNiang/nit_jw_repair/files/4207787/nit_jw_repair.zip" target="_blank" rel="noopener">release</a>或<a href="">百度云:aute</a>中的nit_jw_repair.zip文件并解压</p><p>2、找到Chrome设置-&gt;扩展程序。</p><p><img src="https://github.com/ChiuJun/nit_jw_repair/blob/master/img/step1.jpg" alt=""></p><p>3、在页面右上角打开开发者模式</p><p><img src="https://github.com/ChiuJun/nit_jw_repair/blob/master/img/step2.jpg" alt=""></p><p>4、选择加载已解压的扩展程序，选中解压后的nit_jw_repair目录即可</p><p><img src="https://github.com/ChiuJun/nit_jw_repair/blob/master/img/step3.jpg" alt=""></p><h3 id="Ad："><a href="#Ad：" class="headerlink" title="Ad："></a>Ad：</h3><p>最近作者发现了一家价格便宜速度又快的机场<br>如果你也想飞快地科学上网 <del>(翻墙)</del> 的话，就吃我一记<a href="https://pud.life/aff/DD21" target="_blank" rel="noopener">aff(邀请链接)</a>吧！<br>YouTube 4K60 无压力<br><img src="https://github.com/ChiuJun/nit_jw_repair/blob/master/img/aff.jpg" alt="">  </p><h3 id="求助："><a href="#求助：" class="headerlink" title="求助："></a>求助：</h3><p>在选课界面已选课程无法翻页，原因是两个a标签onclick属性语法只有IE支持</p><pre class="line-numbers language-javascipt"><code class="language-javascipt"><a onclick = "document.forms(0).PageNum.value=2;"></a><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>修正后应该为</p><pre class="line-numbers language-javascipt"><code class="language-javascipt"><a onclick = "document.forms[0].PageNum.value=2;"></a><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>恳请会写前端的大佬协助完善  </p><h4 id="致谢："><a href="#致谢：" class="headerlink" title="致谢："></a>致谢：</h4><p>本插件并非作者原创<br>感谢东北师范大学 <a href="https://github.com/EflyStudio/nenu-jwc-repair" target="_blank" rel="noopener">Efly Studio</a> 提供的JS脚本。<br>感谢中国石油大学(华东)<a href="https://github.com/busymx/upc-jwxt-repair" target="_blank" rel="noopener">busymx</a>提供的参考。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> README </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo commands</title>
       <link href="/2020/03/24/hexo-commands/"/>
       <url>/2020/03/24/hexo-commands/</url>
