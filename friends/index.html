@@ -501,7 +501,7 @@
                                     <div class="friend-button">
                                         <a href="http://88pan.cn/" target="_blank"
                                             class="button button-glow button-rounded button-caution">
-                                            偷窥
+                                            访问主页
                                         </a>
                                     </div>
                                 </div>
@@ -513,13 +513,35 @@
                 </article>
             </div>
         </div>
-        <div class="card">
-            <div class="card-content">
-                
-            </div>
-        </div>
+
         <div class="card">
 
+            
+            <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '6d2dc9b66897ec5e30e2',
+        clientSecret: '56c9d35c076721870c5135437857362d6053b301',
+        repo: 'ChiuJun.github.io',
+        owner: 'ChiuJun',
+        admin: "ChiuJun",
+        id: '2020-03-23T17-55-52',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
             
 
             

@@ -92,7 +92,7 @@ hr {
 }
 
 blockquote {
-    border-left: 5px solid #42b983;
+    border-left: 5px solid #0099CC;
     padding: 1rem 0.8rem 0.2rem 0.8rem;
     color: #666;
     background-color: rgba(66, 185, 131, .1);
@@ -248,7 +248,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #999999 0%, #4B4B4B 100%);
+    background-image: linear-gradient(to right, #999999 0%, #666666 100%);
 }
 
 .text-color {
@@ -389,8 +389,8 @@ header .side-nav .social-link {
 }
 
 .cover-btns a:hover {
-    border: 1px solid #999999;
-    background-color: #999999;
+    border: 1px solid #0099CC;
+    background-color: #0099CC;
     box-shadow: 0 14px 26px -12px rgba(233, 30, 99, 0.42),
             0 4px 23px 0 rgba(0, 0, 0, 0.12),
             0 8px 10px -5px rgba(233, 30, 99, 0.2);
@@ -879,7 +879,7 @@ article a {
 
 article a:hover {
     font-weight: bold;
-    color: #42b983;
+    color: #0099CC;
     text-decoration: underline;
 }
 
@@ -947,6 +947,7 @@ article .article-tags .chip {
     height: 22px;
     line-height: 22px;
     color: #fff;
+    background: 0099CC;
     border-radius: 10px;
 }
 
@@ -1049,6 +1050,7 @@ article .article-tags .chip {
     height: 25px;
     line-height: 24px;
     color: #fff;
+    background: #0099CC;
     border-radius: 15px;
     margin-right: 5px;
     margin-bottom: 2px;
@@ -1062,25 +1064,25 @@ article .article-tags .chip {
     border-radius: 15px;
     margin-right: 5px;
     margin-bottom: 2px;
-    color: #42b983;
-    background: #fff;
+    color: #fff;
+    background: #0099CC;
     border: 1px solid;
     transition: all 0.6s ease-in-out;
 }
 
 #artDetail .tag_share .article-tag .chip:hover {
     color: #fff;
-    background: #42b983;
+    background: #0099CC;
 }
 
 #artDetail .post-cate {
     float: right;
-    color: #42b983;
+    color: #0099CC;
 }
 
 #artDetail .post-cate a {
     padding-right: 5px;
-    color: #42b983;
+    color: #0099CC;
     font-weight: 500;
 }
 
@@ -1099,7 +1101,7 @@ article .article-tags .chip {
 
 #artDetail .post-info .post-category:hover {
     font-weight: bold;
-    color: #42b983;
+    color: #0099CC;
     text-decoration: underline;
 }
 
@@ -1159,7 +1161,7 @@ article .article-tags .chip {
 
 #artDetail .reprint a {
     font-size: 1.05rem;
-    color: #42b983;
+    color: #0099CC;
     font-weight: 500;
 }
 
@@ -1175,7 +1177,7 @@ article .article-tags .chip {
 
 #articleContent a {
     padding: 0 2px;
-    color: #42b983;
+    color: #0099CC;
     font-weight: 500;
     text-decoration: underline;
     word-wrap: break-word;
@@ -1303,7 +1305,7 @@ thead {
 
 .chip-container .chip:hover {
     color: #fff;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%) !important;
+    background: linear-gradient(to right, rgb(75, 181, 216) 0%, #0099CC 100%) !important;
 }
 
 .chip .tag-length {
@@ -1615,8 +1617,8 @@ thead {
     margin: 0 0.5rem;
     padding: 0;
     color: #fff;
-    border: 0px solid #999999;
-    background: radial-gradient(#4b4b4b, #999999);
+    border: 0px solid #0099CC;
+    background: radial-gradient(#0099CC, rgb(117, 213, 245));
     font-size: 0.9rem;
     border-radius: 50%;
     /*box-shadow: 0 4px 6px #999999, 0 2px 3px #999999;*/
@@ -1859,7 +1861,7 @@ footer .copy-right {
 
 .search-result-list .search-result-title {
     font-size: 1.4rem;
-    color: #42b983;
+    color: #0099CC;
 }
 
 .search-result-list li {
