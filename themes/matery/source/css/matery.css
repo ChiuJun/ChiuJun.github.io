@@ -34,9 +34,9 @@
 }
 
 body {
-    background-color: #eaeaea;
+    background-color: #ffffff;
     margin: 0;
-    color: #34495e;
+    /*color: #34495e;*/
 }
 
 h1 {
@@ -304,6 +304,10 @@ header .brand-logo .logo-img {
 }
 
 header .brand-logo .logo-span {
+    font-size: 2rem;
+}
+
+header .logo-span {
     font-size: 2rem;
 }
 
