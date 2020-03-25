@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="微机原理与接口技术 课程实验, JiaBi&#39;s Blog">
-    <meta name="description" content="记录该课程实验相关内容">
+    <meta name="keywords" content="Markdown syntax highlighting keywords, JiaBi&#39;s Blog">
+    <meta name="description" content="Markdown语法高亮关键字，马克备用">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>微机原理与接口技术 课程实验 | JiaBi&#39;s Blog</title>
+    <title>Markdown syntax highlighting keywords | JiaBi&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -267,7 +267,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">微机原理与接口技术 课程实验</h1>
+                    <h1 class="description center-align post-title">Markdown syntax highlighting keywords</h1>
                 </div>
             </div>
         </div>
@@ -384,12 +384,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/LAB/">
-                                <span class="chip bg-color">LAB</span>
+                            <a href="/tags/%E8%BD%AC%E8%BD%BD/">
+                                <span class="chip bg-color">转载</span>
                             </a>
                         
-                            <a href="/tags/ASM/">
-                                <span class="chip bg-color">ASM</span>
+                            <a href="/tags/CheatSheet/">
+                                <span class="chip bg-color">CheatSheet</span>
+                            </a>
+                        
+                            <a href="/tags/Markdown/">
+                                <span class="chip bg-color">Markdown</span>
                             </a>
                         
                     </div>
@@ -400,12 +404,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/" class="post-category">
-                                微机原理与接口技术
-                            </a>
-                        
-                            <a href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" class="post-category">
-                                课程实验
+                            <a href="/categories/Refer/" class="post-category">
+                                Refer
                             </a>
                         
                     </div>
@@ -444,97 +444,141 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="微机原理与接口技术-课程实验"><a href="#微机原理与接口技术-课程实验" class="headerlink" title="微机原理与接口技术 课程实验"></a>微机原理与接口技术 课程实验</h1><blockquote>
-<p>微机原理与接口技术<br>The Principle of Microcomputer &amp; Interface Technology</p>
+                <blockquote>
+<p>Markdown 语法高亮支持的语言还是比较多的，记下来备用。</p>
 </blockquote>
-<pre class="line-numbers language-bash"><code class="language-bash">C:\<span class="token operator">></span>ver 
-MS-DOS Version 6.22  
-C:\MASM<span class="token operator">></span>masm
-Microsoft <span class="token punctuation">(</span>R<span class="token punctuation">)</span> MASM Compatibility Driver Version 6.11  
-Copyright <span class="token punctuation">(</span>C<span class="token punctuation">)</span> Microsoft Corp 1993.  A1l rights reserved.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="实验一-Debug-的使用"><a href="#实验一-Debug-的使用" class="headerlink" title="实验一  Debug 的使用"></a>实验一  Debug 的使用</h2><h3 id="一、实验内容及要求"><a href="#一、实验内容及要求" class="headerlink" title="一、实验内容及要求"></a>一、实验内容及要求</h3><ol>
-<li>查看寄存器中的内容。</li>
-<li>查看内存中的内容<br> PC 主板中有一个生产日期，在内存 FFF00~FFFFFH 的某几个单元中。请找到这个生产日<br> 期并试图改变它。</li>
-<li>向内存 B8100H 开始的单元中填写数据<br> 如：1,2,3,4,5,6,7,8 等等。</li>
-<li>使用 DEBUG，将下列的程序段写入内存，逐条执行，观察每条指令执行后 CPU 中相<br> 关寄存器中的内容变化<pre class="line-numbers language-x86asm"><code class="language-x86asm"> mov ax,4e20h
- add ax,1416h
- mov bx,2000h
- add ax,bx
- mov bx,ax
- add ax,bx
- mov ax,001ah
- mov bx,0026h
- add al,bl
- add ah,bl
- add bh,al
- mov ah,0
- add al,bl
- add al,9ch<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ol>
-<h3 id="二、实验原理及步骤"><a href="#二、实验原理及步骤" class="headerlink" title="二、实验原理及步骤"></a>二、实验原理及步骤</h3><ol>
-<li>进入 Debug 的方法</li>
-<li>用 R 命令查看、改变 CPU 寄存器的内容<br> R 查看寄存器内容<br> 改变寄存器的值：R 相关寄存器</li>
-<li>用 D 命令查看内存中的内容<br> 查看内存中的内容方法： D 段地址：偏移地址<br> 用 D 命令查看内存范围的方法： D 段地址：起始偏移地址 结尾偏移地址</li>
-<li>改写内存中的内容<ul>
-<li>方法 1：用 E 命令改写内存中的内容。比如将 2000:0~2000:9 单元中的内容分别写为<br>0、1、2、3、4、5、6、7、8、9。<br>用命令：E 起始地址 数据 数据。。。。的格式。<br>即：e 2000:0 0 1 2 3 4 5 6 7 8 9。</li>
-<li>方法 2：也可以逐个逐个的修改： E 2000:0 按回车。</li>
-</ul>
-</li>
-<li>查看内存中原有的机器码所对应的汇编指令<br> 方法：U SA:EA</li>
-<li>用 T 命令单步执行  </li>
-<li>用 A 命令以汇编指令的形式在内存中写入机器指令。<ul>
-<li>方法一：A SA:EA</li>
-<li>方法二：A</li>
-</ul>
-</li>
-</ol>
-<h3 id="三、实验结果分析及实验报告"><a href="#三、实验结果分析及实验报告" class="headerlink" title="三、实验结果分析及实验报告"></a>三、实验结果分析及实验报告</h3><ol>
-<li>LAB1_1: 略</li>
-<li>LAB1_2:<br> <img src="http://q7qon7hdm.bkt.clouddn.com/images/TPoM-IT-LAB/lab1_2.jpg" alt="LAB1_2 Result"></li>
-<li>LAB1_3: 显存区域，无现象</li>
-<li>LAB1_4:<br> <img src="http://q7qon7hdm.bkt.clouddn.com/images/TPoM-IT-LAB/lab1_4.jpg" alt="LAB1_4 Code"><br> <img src="http://q7qon7hdm.bkt.clouddn.com/images/TPoM-IT-LAB/lab1_4_result.jpg" alt="LAB1_4 Result"></li>
-</ol>
-<h2 id="实验二-数据处理实验"><a href="#实验二-数据处理实验" class="headerlink" title="实验二 数据处理实验"></a>实验二 数据处理实验</h2><h3 id="一、实验内容及要求-1"><a href="#一、实验内容及要求-1" class="headerlink" title="一、实验内容及要求"></a>一、实验内容及要求</h3><ol>
-<li>编程从键盘上输入一个字符并显示。</li>
-<li>编程实现 2 的 4 次方。</li>
-</ol>
-<h3 id="二、实验原理及步骤-1"><a href="#二、实验原理及步骤-1" class="headerlink" title="二、实验原理及步骤"></a>二、实验原理及步骤</h3><ol>
-<li><p>单字符显示</p>
-<pre class="line-numbers language-x86asm"><code class="language-x86asm"> assume cs:code
-
- code segment
-     mov ah,1
-     int 21h
-     mov dl,al
-     mov ah,2
-     int 21h
-     mov ah,4ch
-     int 21h
- code ends
-
- end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>计算2的4次方</p>
-<pre class="line-numbers language-x86asm"><code class="language-x86asm"> assume cs:code
-
- code segment
- start: 
-     mov ax,2
-     add ax,ax
-     mov ax,ax
-     mov ax,ax
-     mov ah,4ch
-     int 21h
- code ends
-
- end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ol>
-<h3 id="三、实验结果分析及实验报告-1"><a href="#三、实验结果分析及实验报告-1" class="headerlink" title="三、实验结果分析及实验报告"></a>三、实验结果分析及实验报告</h3><ol>
-<li>LAB2_1:<br> <img src="http://q7qon7hdm.bkt.clouddn.com/images/TPoM-IT-LAB/lab2_1.jpg" alt="LAB2_1 Result"></li>
-<li>LAB2_2:<br> <img src="http://q7qon7hdm.bkt.clouddn.com/images/TPoM-IT-LAB/lab2_2.jpg" alt="LAB2_2 Result"></li>
-</ol>
+<table>
+<thead>
+<tr>
+<th align="left">语言名</th>
+<th align="left">关键字</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Bash</td>
+<td align="left">bash</td>
+</tr>
+<tr>
+<td align="left">CoffeeScript</td>
+<td align="left">coffeescript</td>
+</tr>
+<tr>
+<td align="left">C++</td>
+<td align="left">cpp</td>
+</tr>
+<tr>
+<td align="left">C#</td>
+<td align="left">cs</td>
+</tr>
+<tr>
+<td align="left">CSS</td>
+<td align="left">css</td>
+</tr>
+<tr>
+<td align="left">Diff</td>
+<td align="left">diff</td>
+</tr>
+<tr>
+<td align="left">HTTP</td>
+<td align="left">http</td>
+</tr>
+<tr>
+<td align="left">Ini</td>
+<td align="left">ini</td>
+</tr>
+<tr>
+<td align="left">Java</td>
+<td align="left">java</td>
+</tr>
+<tr>
+<td align="left">JavaScript</td>
+<td align="left">javascript</td>
+</tr>
+<tr>
+<td align="left">JSON</td>
+<td align="left">json</td>
+</tr>
+<tr>
+<td align="left">Makefile</td>
+<td align="left">makefile</td>
+</tr>
+<tr>
+<td align="left">Markdown</td>
+<td align="left">markdown</td>
+</tr>
+<tr>
+<td align="left">Objective-C</td>
+<td align="left">objectivec</td>
+</tr>
+<tr>
+<td align="left">Perl</td>
+<td align="left">perl</td>
+</tr>
+<tr>
+<td align="left">Python</td>
+<td align="left">python</td>
+</tr>
+<tr>
+<td align="left">Ruby</td>
+<td align="left">ruby</td>
+</tr>
+<tr>
+<td align="left">SQL</td>
+<td align="left">sql</td>
+</tr>
+<tr>
+<td align="left">XML</td>
+<td align="left">xml</td>
+</tr>
+<tr>
+<td align="left">ARM汇编</td>
+<td align="left">armasm</td>
+</tr>
+<tr>
+<td align="left">AVR汇编</td>
+<td align="left">avrasm</td>
+</tr>
+<tr>
+<td align="left">MIPS汇编</td>
+<td align="left">mipsasm</td>
+</tr>
+<tr>
+<td align="left">x86汇编</td>
+<td align="left">x86asm</td>
+</tr>
+<tr>
+<td align="left">Elixir</td>
+<td align="left">elixir</td>
+</tr>
+<tr>
+<td align="left">Elm</td>
+<td align="left">elm</td>
+</tr>
+<tr>
+<td align="left">Erlang</td>
+<td align="left">erlang</td>
+</tr>
+<tr>
+<td align="left">F#</td>
+<td align="left">fsharp</td>
+</tr>
+<tr>
+<td align="left">Haskell</td>
+<td align="left">haskell</td>
+</tr>
+<tr>
+<td align="left">GLSL</td>
+<td align="left">glsl</td>
+</tr>
+<tr>
+<td align="left">Clojure</td>
+<td align="left">clojure</td>
+</tr>
+<tr>
+<td align="left">Lisp</td>
+<td align="left">lisp</td>
+</tr>
+</tbody></table>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -578,7 +622,7 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jiabi.tech/2020/03/25/tpom-it-lab/">http://jiabi.tech/2020/03/25/tpom-it-lab/</a>
+                    <a href="http://jiabi.tech/2020/03/25/markdown-syntax-highlighting-keywords/">http://jiabi.tech/2020/03/25/markdown-syntax-highlighting-keywords/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -616,12 +660,16 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/LAB/">
-                                    <span class="chip bg-color">LAB</span>
+                                <a href="/tags/%E8%BD%AC%E8%BD%BD/">
+                                    <span class="chip bg-color">转载</span>
                                 </a>
                             
-                                <a href="/tags/ASM/">
-                                    <span class="chip bg-color">ASM</span>
+                                <a href="/tags/CheatSheet/">
+                                    <span class="chip bg-color">CheatSheet</span>
+                                </a>
+                            
+                                <a href="/tags/Markdown/">
+                                    <span class="chip bg-color">Markdown</span>
                                 </a>
                             
                         </div>
@@ -667,7 +715,7 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
         repo: 'ChiuJun.github.io',
         owner: 'ChiuJun',
         admin: "ChiuJun",
-        id: '2020-03-25T11-06-44',
+        id: '2020-03-25T17-49-38',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -688,9 +736,10 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/03/25/markdown-syntax-highlighting-keywords/">
                     <div class="card-image">
@@ -707,9 +756,9 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -722,6 +771,7 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -748,30 +798,34 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/24/emojicheatsheet/">
+                <a href="/2020/03/25/tpom-it-lab/">
                     <div class="card-image">
                         
-                        <img src="http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/emoji.jpg" class="responsive-img" alt="Emoji CheatSheet">
+                        <img src="http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/code.jpg" class="responsive-img" alt="微机原理与接口技术 课程实验">
                         
-                        <span class="card-title">Emoji CheatSheet</span>
+                        <span class="card-title">微机原理与接口技术 课程实验</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Emoji CheatSheet，方便查看
+                            记录该课程实验相关内容
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Refer/" class="post-category">
-                                    Refer
+                            <a href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/" class="post-category">
+                                    微机原理与接口技术
+                                </a>
+                            
+                            <a href="/categories/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" class="post-category">
+                                    课程实验
                                 </a>
                             
                             
@@ -781,12 +835,12 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BD%AC%E8%BD%BD/">
-                        <span class="chip bg-color">转载</span>
+                    <a href="/tags/LAB/">
+                        <span class="chip bg-color">LAB</span>
                     </a>
                     
-                    <a href="/tags/CheatSheet/">
-                        <span class="chip bg-color">CheatSheet</span>
+                    <a href="/tags/ASM/">
+                        <span class="chip bg-color">ASM</span>
                     </a>
                     
                 </div>

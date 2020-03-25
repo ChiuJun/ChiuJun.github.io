@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Markdown syntax highlighting keywords</title>
+      <link href="/2020/03/25/markdown-syntax-highlighting-keywords/"/>
+      <url>/2020/03/25/markdown-syntax-highlighting-keywords/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>Markdown 语法高亮支持的语言还是比较多的，记下来备用。</p></blockquote><table><thead><tr><th align="left">语言名</th><th align="left">关键字</th></tr></thead><tbody><tr><td align="left">Bash</td><td align="left">bash</td></tr><tr><td align="left">CoffeeScript</td><td align="left">coffeescript</td></tr><tr><td align="left">C++</td><td align="left">cpp</td></tr><tr><td align="left">C#</td><td align="left">cs</td></tr><tr><td align="left">CSS</td><td align="left">css</td></tr><tr><td align="left">Diff</td><td align="left">diff</td></tr><tr><td align="left">HTTP</td><td align="left">http</td></tr><tr><td align="left">Ini</td><td align="left">ini</td></tr><tr><td align="left">Java</td><td align="left">java</td></tr><tr><td align="left">JavaScript</td><td align="left">javascript</td></tr><tr><td align="left">JSON</td><td align="left">json</td></tr><tr><td align="left">Makefile</td><td align="left">makefile</td></tr><tr><td align="left">Markdown</td><td align="left">markdown</td></tr><tr><td align="left">Objective-C</td><td align="left">objectivec</td></tr><tr><td align="left">Perl</td><td align="left">perl</td></tr><tr><td align="left">Python</td><td align="left">python</td></tr><tr><td align="left">Ruby</td><td align="left">ruby</td></tr><tr><td align="left">SQL</td><td align="left">sql</td></tr><tr><td align="left">XML</td><td align="left">xml</td></tr><tr><td align="left">ARM汇编</td><td align="left">armasm</td></tr><tr><td align="left">AVR汇编</td><td align="left">avrasm</td></tr><tr><td align="left">MIPS汇编</td><td align="left">mipsasm</td></tr><tr><td align="left">x86汇编</td><td align="left">x86asm</td></tr><tr><td align="left">Elixir</td><td align="left">elixir</td></tr><tr><td align="left">Elm</td><td align="left">elm</td></tr><tr><td align="left">Erlang</td><td align="left">erlang</td></tr><tr><td align="left">F#</td><td align="left">fsharp</td></tr><tr><td align="left">Haskell</td><td align="left">haskell</td></tr><tr><td align="left">GLSL</td><td align="left">glsl</td></tr><tr><td align="left">Clojure</td><td align="left">clojure</td></tr><tr><td align="left">Lisp</td><td align="left">lisp</td></tr></tbody></table><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Refer </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 转载 </tag>
+            
+            <tag> CheatSheet </tag>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微机原理与接口技术 课程实验</title>
       <link href="/2020/03/25/tpom-it-lab/"/>
       <url>/2020/03/25/tpom-it-lab/</url>
@@ -153,9 +182,9 @@
       
         <tags>
             
-            <tag> 转载 </tag>
-            
             <tag> Hexo </tag>
+            
+            <tag> 转载 </tag>
             
         </tags>
       
