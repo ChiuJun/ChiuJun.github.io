@@ -218,16 +218,16 @@
           
           <category> 微机原理 </category>
           
-          <category> 课程实验 </category>
-          
       </categories>
       
       
         <tags>
             
+            <tag> ASM </tag>
+            
             <tag> LAB </tag>
             
-            <tag> ASM </tag>
+            <tag> 课程实验 </tag>
             
         </tags>
       
