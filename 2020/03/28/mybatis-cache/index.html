@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Chiu, JiaBi&#39;s Blog">
-    <meta name="description" content="Happy Birthday">
+    <meta name="keywords" content="JavaEE(SSM) MyBatis缓存处理, JiaBi&#39;s Blog">
+    <meta name="description" content="Java EE (SSM) 企业应用实践 第5章 MyBatis缓存处理">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Chiu | JiaBi&#39;s Blog</title>
+    <title>JavaEE(SSM) MyBatis缓存处理 | JiaBi&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,7 +249,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '5a72b76edf735b4ceacb73cb44e85f3bf8aa46f75d9b92fa2c5860a9f0c1dc60';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -262,12 +262,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://q7qon7hdm.bkt.clouddn.com/chiu.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/ssm.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Chiu</h1>
+                    <h1 class="description center-align post-title">JavaEE(SSM) MyBatis缓存处理</h1>
                 </div>
             </div>
         </div>
@@ -384,8 +384,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Toys/">
-                                <span class="chip bg-color">Toys</span>
+                            <a href="/tags/J2EE/">
+                                <span class="chip bg-color">J2EE</span>
+                            </a>
+                        
+                            <a href="/tags/SSM/">
+                                <span class="chip bg-color">SSM</span>
+                            </a>
+                        
+                            <a href="/tags/MyBatis/">
+                                <span class="chip bg-color">MyBatis</span>
+                            </a>
+                        
+                            <a href="/tags/EhCache/">
+                                <span class="chip bg-color">EhCache</span>
                             </a>
                         
                     </div>
@@ -396,8 +408,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Toys/" class="post-category">
-                                Toys
+                            <a href="/categories/J2EE%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                J2EE课程
                             </a>
                         
                     </div>
@@ -436,44 +448,82 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre><code>    __  __                             
-    |   |    ___  \,___, \,___, ,    . 
-    |___|   /   ` |    \ |    \ |    ` 
-    |   |  |    | |    | |    | |    | 
-    /   /  `.__/| |`---' |`---'  `---|.
-                    \      \     \___/ 
-____            .    _           _               
-/   \  ` .___  _/_   /        ___/   ___  ,    . 
-|,_-&lt;  | /   \  |    |,---.  /   |  /   ` |    ` 
-|    ` | |   '  |    |'   ` ,'   | |    | |    | 
-`----' / /      \__/ /    | `___,' `.__/|  `---|.
-                                        `  \___/     
-
-    __  __                             
-    |   |    ___  \,___, \,___, ,    . 
-    |___|   /   ` |    \ |    \ |    ` 
-    |   |  |    | |    | |    | |    | 
-    /   /  `.__/| |`---' |`---'  `---|.
-                    \      \     \___/ 
-____            .    _           _               
-/   \  ` .___  _/_   /        ___/   ___  ,    . 
-|,_-&lt;  | /   \  |    |,---.  /   |  /   ` |    ` 
-|    ` | |   '  |    |'   ` ,'   | |    | |    | 
-`----' / /      \__/ /    | `___,' `.__/|  `---|.
-                                        `  \___/  
-
-    __  __                             
-    |   |    ___  \,___, \,___, ,    . 
-    |___|   /   ` |    \ |    \ |    ` 
-    |   |  |    | |    | |    | |    | 
-    /   /  `.__/| |`---' |`---'  `---|.
-                    \      \     \___/ 
-____            .    _           _               
-/   \  ` .___  _/_   /        ___/   ___  ,    . 
-|,_-&lt;  | /   \  |    |,---.  /   |  /   ` |    ` 
-|    ` | |   '  |    |'   ` ,'   | |    | |    | 
-`----' / /      \__/ /    | `___,' `.__/|  `---|.
-                                        `  \___/                                          </code></pre><script>
+                <h1 id="Java-EE-SSM-企业应用实践"><a href="#Java-EE-SSM-企业应用实践" class="headerlink" title="Java EE (SSM) 企业应用实践"></a>Java EE (SSM) 企业应用实践</h1><blockquote>
+<p>课程亮点<br>本课程全面介绍了Java EE中MyBatis、Spring和Spring MVC三大框架的基本知识和使用方法。课程中对知识点的讲解由浅入深、通俗易懂，同时配备大量的操作案例，通过案例的演示帮助读者理解技术原理并提高实际操作能力。 全课程主要讲解了MyBatis、Spring、Spring MVC的相关知识，最后是一个项目案例，通过项目案例帮助读者掌握SSM框架整合的技术，让读者适应企业级开发的技术需要，为大型项目开发奠定基础。 本课程适合作为高等院校计算机类相关课程的教材，同时也可作为编程人员的学习指南。  </p>
+</blockquote>
+<h1 id="第5章-MyBatis缓存处理"><a href="#第5章-MyBatis缓存处理" class="headerlink" title="第5章 MyBatis缓存处理"></a>第5章 MyBatis缓存处理</h1><h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h2><ol>
+<li>理解MyBatis的一级缓存机制和二级缓存机制</li>
+<li>掌握MyBatis处理一级缓存的方法</li>
+<li>掌握MyBatis处理二级缓存的方法</li>
+<li>掌握MyBatis集成EhCache缓存的方法</li>
+</ol>
+<h2 id="MyBatis的缓存机制"><a href="#MyBatis的缓存机制" class="headerlink" title="MyBatis的缓存机制"></a>MyBatis的缓存机制</h2><ul>
+<li><p>通常情况下，缓存将程序使用频率较高的数据存储在内存中，它具有可被快速读取和使用的特点。</p>
+</li>
+<li><p>MyBatis支持缓存，它在内存中开辟一块区域，该区域用于保存程序对数据库的操作信息和数据库返回的数据，如果下一次程序再执行相同的操作，那么直接从缓存中读取数据而不是从数据库读取，如此一来，大大提升数据库性能并减轻系统压力。</p>
+</li>
+<li><p>Mybatis使用到了两种缓存：一级缓存(本地缓存 local cache)和二级缓存（second level cache）。</p>
+</li>
+<li><p>其中，一级缓存是SqlSession级别的缓存。当创建SqlSession对象操作数据库时，MyBatis在SqlSession对象中引入一个HashMap对象作为存储数据的区域，HashMap对象的key是由SQL语句、条件、statement等信息组成一个唯一值。HashMap对象的value是查询出的结果对象。不同SqlSession对象之间的HashMap对象互不影响。</p>
+<ul>
+<li>默认情况下，一级缓存数据的生命周期等同于整个 session 的周期。<br>  由于缓存会被用来解决循环引用问题和加快重复嵌套查询的速度，所以无法将其完全禁用。<br>  但是可以通过设置 localCacheScope=STATEMENT 来只在语句执行时使用缓存。</li>
+<li>在MyBatis中，当同一个SqlSession对象多次执行完全相同的SQL语句时<br>  在第一次执行完成后，MyBatis会将查询结果写入到一级缓存，此后如果程序没有执行插入、更新、删除操作<br>  当第二次执行相同的查询语句时，MyBatis会直接读取一级缓存中的数据。</li>
+</ul>
+</li>
+<li><p>二级缓存是Mapper级别的缓存，多个SqlSession去操作同一个Mapper的SQL语句，二级缓存是跨SqlSession的，多个SqlSession可以共用二级缓存。与一级缓存的HashMap对象相同，二级缓存的HashMap对象的key由SQL语句、条件、statement等信息组成，HashMap对象的value是查询出的结果对象。</p>
+<ul>
+<li>默认情况下，只启用了一级缓存，它仅仅对一个会话中的数据进行缓存。二级缓存需要手动开启。</li>
+<li>当开启二级缓存时，MyBatis以namespace区分Mapper<br>  如果多个SqlSession对象使用同一个Mapper的相同查询语句去操作数据库，在第一个SqlSession对象执行完成后，MyBatis会将查询结果写入到二级缓存，此后，如果程序没有执行插入、更新、删除操作，当第二个SqlSession对象执行相同的查询语句时，MyBatis会直接读取二级缓存中的数据。</li>
+<li>要启用全局的二级缓存，只需要在相应的的SQL映射文件中添加一行 &lt;cache/&gt;<br> 该语句的效果为：<ul>
+<li>映射语句文件中的所有 select 语句的结果将会被缓存。</li>
+<li>映射语句文件中的所有 insert、update 和 delete 语句会刷新缓存。</li>
+<li>缓存会使用最近最少使用算法（LRU, Least Recently Used）算法来清除不需要的缓存。</li>
+<li>缓存不会定时进行刷新（也就是说，没有刷新间隔）。</li>
+<li>缓存会保存列表或对象（无论查询方法返回哪种）的 1024 个引用。</li>
+<li>缓存会被视为读/写缓存，这意味着获取到的对象并不是共享的，可以安全地被调用者修改，而不干扰其他调用者或线程所做的潜在修改。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Mybatis 通过使用内置的日志工厂提供日志功能。内置日志工厂将会把日志工作委托给下面的实现之一</p>
+<ul>
+<li>SLF4J</li>
+<li>Apache Commons Logging</li>
+<li>Log4j 2</li>
+<li>Log4j</li>
+<li>JDK logging</li>
+</ul>
+</li>
+<li><p>查看MyBatis一级缓存的工作状态，可以通过log4j日志组件    </p>
+<ul>
+<li>在src目录下创建log4j.properties文件</li>
+<li>引入相应的jar包即可</li>
+</ul>
+</li>
+</ul>
+<h2 id="EhCache缓存"><a href="#EhCache缓存" class="headerlink" title="EhCache缓存"></a>EhCache缓存</h2><ul>
+<li>在实际开发中，很多项目采用分布式的系统架构。<br>  分布式系统架构是将项目拆分成若干个子项目并使它们协同发挥功能的解决方案。在分布式系统架构下，为了提升系统性能，通常会采用分布式缓存对缓存数据进行集中管理。<br>  由于MyBatis自身无法实现分布式缓存，需要整合其他分布式缓存框架，如EhCache缓存。</li>
+<li>EhCache是一种获得广泛应用的开源分布式缓存框架，具有快速、简单、能够提供多种缓存策略等特点，主要面向通用缓存、    和轻量级容器等。</li>
+<li>EhCache通常采用名称为ehcache.xml的配置文件实现功能配置，EhCache的配置文件有其自身特有的层次结构，具体参见<a href="http://mybatis.org/ehcache-cache/" target="_blank" rel="noopener">官方文档</a></li>
+<li>整合EhCache缓存<ul>
+<li>在<a href="https://github.com/mybatis/ehcache-cache" target="_blank" rel="noopener">GitHub仓库</a>下载最新的release并将jar包引入工程</li>
+<li>在映射文件中，配置&lt;cache&gt;标签的type属性为EhCache对cache接口的实现类的完全限定名即可</li>
+</ul>
+</li>
+</ul>
+<h2 id="本章小结"><a href="#本章小结" class="headerlink" title="本章小结"></a>本章小结</h2><ul>
+<li>本章首先介绍了MyBatis的缓存机制</li>
+<li>接下来讲解了MyBatis中的一级缓存，包括一级缓存的原理</li>
+<li>然后讲解了MyBatis的二级缓存，包括二级缓存的原理、配置</li>
+<li>最后讲解了MyBatis与EhCache缓存的整合</li>
+<li>通过本章知识的学习，大家应该理解MyBatis的缓存机制，重点掌握二级缓存的应用和MyBatis整合EhCache缓存的方法，能够使用缓存提升MyBatis程序的查询效率、优化系统整体性能。</li>
+</ul>
+<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><ul>
+<li>其实这门课程是学校开设的生产实习的内容，博主本身对J2EE并不感兴趣</li>
+<li>课程内容来自千锋教育，几节课看下来，深感课程内容之浅，缺乏诚意。观看体验很糟糕，也浪费时间。</li>
+<li>可能不再更新这个系列的Blog</li>
+</ul>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -516,7 +566,7 @@ ____            .    _           _
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jiabi.tech/2020/03/28/chiu/">http://jiabi.tech/2020/03/28/chiu/</a>
+                    <a href="http://jiabi.tech/2020/03/28/mybatis-cache/">http://jiabi.tech/2020/03/28/mybatis-cache/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -554,8 +604,20 @@ ____            .    _           _
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Toys/">
-                                    <span class="chip bg-color">Toys</span>
+                                <a href="/tags/J2EE/">
+                                    <span class="chip bg-color">J2EE</span>
+                                </a>
+                            
+                                <a href="/tags/SSM/">
+                                    <span class="chip bg-color">SSM</span>
+                                </a>
+                            
+                                <a href="/tags/MyBatis/">
+                                    <span class="chip bg-color">MyBatis</span>
+                                </a>
+                            
+                                <a href="/tags/EhCache/">
+                                    <span class="chip bg-color">EhCache</span>
                                 </a>
                             
                         </div>
@@ -601,7 +663,7 @@ ____            .    _           _
         repo: 'ChiuJun.github.io',
         owner: 'ChiuJun',
         admin: "ChiuJun",
-        id: '2020-03-28T12-09-34',
+        id: '2020-03-28T23-13-31',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -622,9 +684,10 @@ ____            .    _           _
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/03/28/mybatis-cache/">
                     <div class="card-image">
@@ -641,9 +704,9 @@ ____            .    _           _
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -656,6 +719,7 @@ ____            .    _           _
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -686,30 +750,30 @@ ____            .    _           _
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/27/j2ee-ssm-mybatis-dynamic-sql-and-annotation/">
+                <a href="/2020/03/28/chiu/">
                     <div class="card-image">
                         
-                        <img src="http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/ssm.jpg" class="responsive-img" alt="JavaEE(SSM) MyBatis动态SQL和注解">
+                        <img src="http://q7qon7hdm.bkt.clouddn.com/chiu.jpg" class="responsive-img" alt="Chiu">
                         
-                        <span class="card-title">JavaEE(SSM) MyBatis动态SQL和注解</span>
+                        <span class="card-title">Chiu</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java EE (SSM) 企业应用实践 第4章 动态SQL和注解
+                            Happy Birthday
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/J2EE%E8%AF%BE%E7%A8%8B/" class="post-category">
-                                    J2EE课程
+                            <a href="/categories/Toys/" class="post-category">
+                                    Toys
                                 </a>
                             
                             
@@ -719,20 +783,8 @@ ____            .    _           _
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/J2EE/">
-                        <span class="chip bg-color">J2EE</span>
-                    </a>
-                    
-                    <a href="/tags/SSM/">
-                        <span class="chip bg-color">SSM</span>
-                    </a>
-                    
-                    <a href="/tags/MyBatis/">
-                        <span class="chip bg-color">MyBatis</span>
-                    </a>
-                    
-                    <a href="/tags/DynamicSQL/">
-                        <span class="chip bg-color">DynamicSQL</span>
+                    <a href="/tags/Toys/">
+                        <span class="chip bg-color">Toys</span>
                     </a>
                     
                 </div>
