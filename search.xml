@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Chiu</title>
+      <link href="/2020/03/28/chiu/"/>
+      <url>/2020/03/28/chiu/</url>
+      
+        <content type="html"><![CDATA[<pre><code>                                __  __                                                             |   |    ___  \,___, \,___, ,    .                                 |___|   /   ` |    \ |    \ |    `                                 |   |  |    | |    | |    | |    |                                 /   /  `.__/| |`---' |`---'  `---|.                                              \      \       \___/                             ____            .    _           _                                           /   \  ` .___  _/_   /        ___/   ___  ,    .                             |,_-&lt;  | /   \  |    |,---.  /   |  /   ` |    `                             |    ` | |   '  |    |'   ` ,'   | |    | |    |                             `----' / /      \__/ /    | `___,' `.__/|  `---|.                                                             `         \___/                                     __  __                                                             |   |    ___  \,___, \,___, ,    .                                 |___|   /   ` |    \ |    \ |    `                                 |   |  |    | |    | |    | |    |                                 /   /  `.__/| |`---' |`---'  `---|.                                              \      \       \___/                             ____            .    _           _                                           /   \  ` .___  _/_   /        ___/   ___  ,    .                             |,_-&lt;  | /   \  |    |,---.  /   |  /   ` |    `                             |    ` | |   '  |    |'   ` ,'   | |    | |    |                             `----' / /      \__/ /    | `___,' `.__/|  `---|.                                                             `         \___/                                   __  __                                                             |   |    ___  \,___, \,___, ,    .                                 |___|   /   ` |    \ |    \ |    `                                 |   |  |    | |    | |    | |    |                                 /   /  `.__/| |`---' |`---'  `---|.                                              \      \       \___/                             ____            .    _           _                                           /   \  ` .___  _/_   /        ___/   ___  ,    .                             |,_-&lt;  | /   \  |    |,---.  /   |  /   ` |    `                             |    ` | |   '  |    |'   ` ,'   | |    | |    |                             `----' / /      \__/ /    | `___,' `.__/|  `---|.                                                             `         \___/ </code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> Pig </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Chiu </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaEE(SSM) MyBatis关联映射</title>
       <link href="/2020/03/27/j2ee-ssm-mybatis-resultmap-advanced/"/>
       <url>/2020/03/27/j2ee-ssm-mybatis-resultmap-advanced/</url>
@@ -191,6 +216,8 @@
       
       
         <tags>
+            
+            <tag> 转载 </tag>
             
             <tag> Hexo </tag>
             
