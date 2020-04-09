@@ -424,7 +424,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-06
+                    2020-04-09
                 </div>
                 
 
@@ -503,8 +503,8 @@
     <span class="token punctuation">}</span>
 
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="MD5Utils"><a href="#MD5Utils" class="headerlink" title="MD5Utils"></a>MD5Utils</h2><ul>
-<li>实现使用MD5加密密码的工具类</li>
+<h2 id="MessageDigestUtils"><a href="#MessageDigestUtils" class="headerlink" title="MessageDigestUtils"></a>MessageDigestUtils</h2><ul>
+<li>使用MessageDigest实现加密字符串的工具类</li>
 </ul>
 <h3 id="前置知识-1"><a href="#前置知识-1" class="headerlink" title="前置知识"></a>前置知识</h3><ul>
 <li>Class MessageDigest  <ul>
@@ -546,7 +546,7 @@
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>security<span class="token punctuation">.</span>MessageDigest<span class="token punctuation">;</span>
 <span class="token keyword">import</span> java<span class="token punctuation">.</span>security<span class="token punctuation">.</span>NoSuchAlgorithmException<span class="token punctuation">;</span>
 
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MD5Utils</span><span class="token punctuation">{</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MessageDigestUtils</span> <span class="token punctuation">{</span>
 
     <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">md5</span><span class="token punctuation">(</span>String password<span class="token punctuation">)</span><span class="token punctuation">{</span>
 
@@ -807,7 +807,7 @@
             message<span class="token punctuation">.</span><span class="token function">setSubject</span><span class="token punctuation">(</span><span class="token string">"锋迷网激活码"</span><span class="token punctuation">,</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token comment" spellcheck="true">//获取本机的ip地址</span>
             String ip <span class="token operator">=</span> Inet4Address<span class="token punctuation">.</span><span class="token function">getLocalHost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getHostAddress</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            String url <span class="token operator">=</span> <span class="token string">"http://"</span><span class="token operator">+</span>ip<span class="token operator">+</span><span class="token string">":8080/chapter16/activate?e="</span><span class="token operator">+</span> Base64Utils<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"&amp;c="</span><span class="token operator">+</span>Base64Utils<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getActivatecode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            String url <span class="token operator">=</span> <span class="token string">"http://"</span><span class="token operator">+</span>ip<span class="token operator">+</span><span class="token string">":8086/PhoneNet/activate?e="</span><span class="token operator">+</span> Base64Utils<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"&amp;c="</span><span class="token operator">+</span>Base64Utils<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getActivatecode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token comment" spellcheck="true">//设置正文信息</span>
             message<span class="token punctuation">.</span><span class="token function">setContent</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getUsername</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">",欢迎你加入我们&lt;br>为了更好体验我们的产品，请&lt;a href='"</span><span class="token operator">+</span>url<span class="token operator">+</span><span class="token string">"'>点击激活 "</span><span class="token operator">+</span>url<span class="token operator">+</span><span class="token string">"&lt;/a>"</span><span class="token punctuation">,</span><span class="token string">"text/html;charset=utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token comment" spellcheck="true">//设置日期</span>
@@ -978,29 +978,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/06/phonenet-utils/">
+                <a href="/2020/04/09/phonenet-bug-fix-log/">
                     <div class="card-image">
                         
-                        <img src="http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/ssm.jpg" class="responsive-img" alt="PhoneNet 工具类实现">
+                        <img src="http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/ssm.jpg" class="responsive-img" alt="PhoneNet 日志">
                         
-                        <span class="card-title">PhoneNet 工具类实现</span>
+                        <span class="card-title">PhoneNet 日志</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            package com.qfedu.common.utils
+                            PhoneNet Bugfix Log
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1013,20 +1012,15 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/J2EE/">
-                        <span class="chip bg-color">J2EE</span>
-                    </a>
-                    
-                    <a href="/tags/SSM/">
-                        <span class="chip bg-color">SSM</span>
-                    </a>
-                    
                     <a href="/tags/PhoneNet/">
                         <span class="chip bg-color">PhoneNet</span>
+                    </a>
+                    
+                    <a href="/tags/Log/">
+                        <span class="chip bg-color">Log</span>
                     </a>
                     
                 </div>
