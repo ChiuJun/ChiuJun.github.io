@@ -598,6 +598,10 @@
 </li>
 <li><p>解决了 admin/login.jsp 背景图片被过滤的问题</p>
 </li>
+<li><p>增加了触发器deleteOrder<br>  t_order 表删除记录自动删除 t_orderdetail 表对应的记录</p>
+<pre class="line-numbers language-sql"><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TRIGGER</span> <span class="token punctuation">`</span>deleteOrder<span class="token punctuation">`</span> <span class="token keyword">AFTER</span> <span class="token keyword">DELETE</span> <span class="token keyword">ON</span> <span class="token punctuation">`</span>t_order<span class="token punctuation">`</span> <span class="token keyword">FOR EACH ROW</span>
+   <span class="token keyword">delete</span> <span class="token keyword">from</span> t_orderdetail <span class="token keyword">where</span> oid <span class="token operator">=</span> OLD<span class="token punctuation">.</span>id<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p>Tips：</p>
 <ul>
 <li>浏览器的缓存会影响调试</li>
@@ -615,7 +619,6 @@
 </li>
 <li>购物车为空可以结算的BUG</li>
 <li>t_cart 表 money 字段没有自动更新 <strong>触发器？</strong></li>
-<li>t_order 表删除记录没有删除 t_orderdetail 表对应的记录 <strong>触发器？</strong></li>
 </ul>
 <script>
         document.querySelectorAll('.github-emoji')
