@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="写给学弟学妹, JiaBi&#39;s Blog">
-    <meta name="description" content="关于数据结构与算法竞赛的一些想法">
+    <meta name="keywords" content="Assembly Language Lab, JiaBi&#39;s Blog">
+    <meta name="description" content="记录王爽汇编语言第三版实验相关">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>写给学弟学妹 | JiaBi&#39;s Blog</title>
+    <title>Assembly Language Lab | JiaBi&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,7 +249,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = 'ca9865b018183eab3e9cb81175c9192307e0d5ba1e8d3286208ff47fb40d24ae';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -262,12 +262,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/book.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/asm3e.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">写给学弟学妹</h1>
+                    <h1 class="description center-align post-title">Assembly Language Lab</h1>
                 </div>
             </div>
         </div>
@@ -384,8 +384,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/idea/">
-                                <span class="chip bg-color">idea</span>
+                            <a href="/tags/ASM/">
+                                <span class="chip bg-color">ASM</span>
+                            </a>
+                        
+                            <a href="/tags/LAB/">
+                                <span class="chip bg-color">LAB</span>
                             </a>
                         
                     </div>
@@ -396,8 +400,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%9A%8F%E7%AC%94/" class="post-category">
-                                随笔
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                计算机基础
                             </a>
                         
                     </div>
@@ -409,7 +413,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-24
+                    2020-04-13
                 </div>
                 
 
@@ -436,37 +440,55 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="关于数据结构与算法竞赛的一些想法"><a href="#关于数据结构与算法竞赛的一些想法" class="headerlink" title="关于数据结构与算法竞赛的一些想法"></a>关于数据结构与算法竞赛的一些想法</h1><p>各位萌新or大佬<br>原本是想自己写一点的，想来想去，还是引用陈越姥姥在中国大学MOOC上开设的<a href="https://www.icourse163.org/course/ZJU-93001" target="_blank" rel="noopener">数据结构</a>课程的新学期寄语给你们吧</p>
-<p>网络上各种非常棒的帖子非常多，蕴含着前辈的智慧和对后来者的期盼，我又何必费劲巴拉去写出狗屁不通的东西呢。总之我想对你说的是，数据结构与基本的算法分析能力是万丈高楼的基础，基础不扎实，或许你可以继续有所建树，但是<strong>终究会成为限制你的天花板</strong>。不管你对这方面有没有兴趣，都需要去学习这门课程，而兴趣浓厚的同学可以继续探究。那么，该如何深入呢？进行理论研究在目前的情况下是不现实的，因为咋们学习消化完这门课程之后，连门都没入啊。何况进行理论研究还需要<strong>非常棒的数学基础</strong>与逻辑分析与抽象的能力，还有其他的计算机相关学科的知识。</p>
-<p>那还有没有其他方式可以让我继续接触这块奇妙的领域？你好，有的！<strong>算法竞赛</strong> </p>
-<p>这是途径之一，其中最著名的而且含金量最高的非<strong>ACM</strong>莫属（全称ACM国际大学生程序设计竞赛 / International Collegiate Programming Contest）</p>
-<p>含金量有多高呢，拿西安电子科技大学的<a href="https://cs.xidian.edu.cn/html/notice/2108.html" target="_blank" rel="noopener">优研计划</a>来说，入营资格：非985/211院校的本科生需要在<strong>高水平学科竞赛</strong>中获奖或获得高水平研究成果</p>
-<p>其中一条便是<strong>ACM/ICPC国际大学生程序设计竞赛亚洲区分站赛金奖和银奖获奖学生</strong></p>
-<p>如果你成为优秀学员，考研是可以优先录取的哦。（据不可靠传言，是国家线即可</p>
-<p>就算在认真准备之后，你没有获奖，我相信你一定不会后悔准备的过程与花费其中的精力的，相信我！（不过像我这样没有好好准备的当然会后悔/(ㄒoㄒ)/~~</p>
-<p>作为弱校，我们也在<del>积极参与其中</del>（摸鱼），如果你对这方便有兴趣的话，我们正在筹建校队，欢迎你加入我们。</p>
-<p>最后我想说的是，这是一件投入产出比比较低的事情，短期收益或许非常低。<strong>如果你耐不住寂寞，不要轻易入坑</strong></p>
-<p>接下来是为大家布置的<strong>任务</strong>，如果在接下来两周，你能完成<a href="https://www.icourse163.org/course/ZJU-93001" target="_blank" rel="noopener">该课程</a>中<strong>前两周的内容</strong>并且完成<strong>相应的编程习题</strong>的话，我们的队伍需要你这样对代码充满热情的选手！</p>
-<p>完成任务之后你可以将课程平台相关信息截图发送至我们的邮箱 <a href="mailto:niticpc@163.com">niticpc@163.com</a></p>
-<p>下面是分割线啦，建议大家先阅读下面的”新学期寄语”之后，再阅读<a href="https://zhuanlan.zhihu.com/p/29598587" target="_blank" rel="noopener">关于ACM竞赛你需要了解的一些东西</a>与<a href="https://www.zhihu.com/question/68073393" target="_blank" rel="noopener">相关问题</a>（只是举个栗子，就这样</p>
-<p>感谢大家的阅读（累~</p>
-<blockquote>
-<p>【数据结构】新学期寄语</p>
-<p>新学期马上就开始了，你准备好了吗？^_^</p>
-<p>如果你学过翁恺老师的“C语言程序设计”并且被他的期末考试虐到心塞，“陈越姥姥”跟你握&gt;个手 —— 咱们是同学啊！（刚学完C就教数据结构我也是醉了……）如果你读过高等教育出版&gt;社出的《C语言程序设计（第2版）》这本教材，何钦铭老师跟你握个手 —— 写这本书不容&gt; 易，欢迎多提意见，挑错有奖啊！话说第3版刚出来，要不要去看看…… ^_^</p>
-<p>神马？两次握手都够不着？？？</p>
-<p>那……</p>
-<p>其实……</p>
-<p>一点关系都没有啦！^_^</p>
-<p>“数据结构”其实并不依赖于任何一种编程语言，这门课讲的是有效解决问题的方法和原理，&gt;编程语言是实现这些方法的工具而已。我们的课后练习平台拼题A（<a href="https://pintia.cn/上有《中国大学MOOC-陈越、何钦铭-数据结构-2019夏》习题集）提供了三十多种编程语言的编译器/解释器：gcc、g++、clang、clang++、octave、openjdk、python" target="_blank" rel="noopener">https://pintia.cn/上有《中国大学MOOC-陈越、何钦铭-数据结构-2019夏》习题集）提供了三十多种编程语言的编译器/解释器：gcc、g++、clang、clang++、octave、openjdk、python</a> 2、python 3、ruby、bash、cat、clisp、fpc、gfortran、go、ghc、lua、luajit、mcs、node、ocamlc、php、perl、awk、dmd、racket、valac、vbnc、kotlinc、swiftc、&gt; &gt; &gt; &gt; gfortran、octave —— 你只要会用其中任何一种，就可以下课刷题玩啦~</p>
-<p>学过一门编程语言，你是否大概习惯了计算机的思维方式呢？这就像刚入门的泥瓦匠，学会了如何砌一堵坚实的矮墙，能成功砌起一圈猪圈并且因为一群猪都拱它不倒而暗自欣喜（</p>
-<p>总感觉哪里不对，谁是猪……）。而学习数据结构，就像学习构造更复杂建筑的原理，教你如何盖一座精巧的小型别墅，麻雀虽小但五脏俱全。今后如果你有兴趣了解建筑摩天大厦的技术，建议学习“软件工程”，学会如何把一个团队的人组织在一起，有条不紊地完成一个百万行以上代码量的软件产品。</p>
-<p>要学好这门课，你要有每周投入8小时（或者更多）的决心，其中听课只占一小部分 —— 每次讲课的时间一般只有1小时左右，重要的是课后的练习。光说不练嘴把势，只了解原理是远远不够的，你必须在实践中去深刻体会每一个概念的运用，才能真正知道经典的数据结构为什么存在、以及在什么情况下可以最好地解决什么样的问题。</p>
-<p>话说翁恺（主讲“C语言程序设计”、“Java语言程序设计”）、何钦铭（主讲“C语言程序设计”、“数据结构与算法”）、陈越（主讲“数据结构与算法”、“软件工程”）曾经于2013年参加了浙江大学的“ACM竞赛”，这个学生们眼中恐怖的黄金组合给自己的队伍取名“135队”，欢乐地跟自己的学生们一起抢气球玩，最后以2个气球的成绩排到了三等奖的队伍里（搞笑的详细经过参见“陈越姥姥”新浪博文：<a href="https://weibo.com/p/1001603845676948658364）——" target="_blank" rel="noopener">https://weibo.com/p/1001603845676948658364）——</a> 这个故事告诉我们，如果你学习的目标是获得优秀证书、在程序设计竞赛中获得好成绩、或者在找工作的时候通过PAT获得顶级企业的应聘机会，只有理论基础是不够的 —— 讲理论能拼得过我们仨不？要在实战中取得好成绩，你还需要过人的熟练编程及调试能力、扎实的英语阅读能力。所以为了帮你获得这些能力，我们会布置一定量的课后编程题目，有些是中文、有些是英文，部分是PAT真题，希望你安排出充足的时间、运起洪荒之力练习。</p>
-<p>如果你觉得洪荒之力都不够，慌不要慌，我们还特意设计了“小白专场”系列，手把手教小白如何将解决问题的抽象算法用具体的C语言代码实现。同时我们还将提供更多的源代码（C语言）、以及课后讨论题的参考答案。</p>
-<p>所谓“万事开头难”，但是不要怕，现在的大侠都是从勤奋的小白开始的，慢慢总会入门哒！</p>
-<p>新学期马上开始了，你准备好了吗？^_^</p>
+                <h1 id="王爽《汇编语言》第三版-实验"><a href="#王爽《汇编语言》第三版-实验" class="headerlink" title="王爽《汇编语言》第三版 实验"></a>王爽《汇编语言》第三版 实验</h1><blockquote>
+<p>以后用到的知识 以后再说  </p>
 </blockquote>
+<blockquote>
+<p>久闻大名，未曾拜读<br>    这次趁着微机课程，解去心头之痒<br>    顺便博客刚开，就随手记录下书本上的实验  </p>
+</blockquote>
+<pre class="line-numbers language-bash"><code class="language-bash">C:\<span class="token operator">></span>ver 
+MS-DOS Version 6.22  
+C:\MASM<span class="token operator">></span>masm
+Microsoft <span class="token punctuation">(</span>R<span class="token punctuation">)</span> MASM Compatibility Driver Version 6.11  
+Copyright <span class="token punctuation">(</span>C<span class="token punctuation">)</span> Microsoft Corp 1993.  A1l rights reserved.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="实验1-查看CPU和内存，用机器指令和汇编指令编程"><a href="#实验1-查看CPU和内存，用机器指令和汇编指令编程" class="headerlink" title="实验1 查看CPU和内存，用机器指令和汇编指令编程"></a>实验1 查看CPU和内存，用机器指令和汇编指令编程</h2><ol>
+<li><p>使用Debug，将下面的程序段写入内存，逐条执行，观察每条指令执行后，CPU中相关寄存器的变化。  </p>
+<ul>
+<li>提示，可用E命令和A命令以两种方式将指令写入内存。注意用T命令执行时，CS:IP的指向。</li>
+<li>注：这里略去其他寄存器的变化<pre class="line-numbers language-x86asm"><code class="language-x86asm">mov ax,4e20h    ;ax=4e20h
+add ax,1416h    ;ax=6236h
+mov bx,2000h    ;bx=2000h
+add ax,bx        ;ax=8236h
+mov bx,ax        ;bx=8236h
+add ax,bx        ;ax=046ch
+mov ax,001ah    ;ax=001ah
+mov bx,0026h    ;bx=0026h
+add al,bl        ;ax=0040h
+add ah,bl        ;ax=2640h
+add bh,al        ;bx=4026h
+mov ah,0        ;ax=0040h
+add al,bl        ;ax=0066h
+add al,9ch        ;ax=0002h<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+<li><p>将下面3条指令写入从2000:0开始的内存单元中，利用这3条指令计算2的8次方。</p>
+<pre class="line-numbers language-x86asm"><code class="language-x86asm"> ;2^8=256=100h
+ mov ax, 1
+ add ax, ax
+ jmp 2000:0003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p> 每次执行 add ax,ax 相当于将ax乘2，重复执行该条指令8次即可。</p>
+</li>
+<li><p>查看内存中的内容。<br> PC机主板上的ROM写有一个生产日期，在内存FFF00H～FFFFFH的某几个单元中，请找到这个生产日期并试图改变它。<br> 提示，如果读者对实验的结果感到疑惑，请仔细阅读第1章中的1.15节。<br> 结果如图：04/13/18，只读不可改写<br> <img src="http://q7qon7hdm.bkt.clouddn.com/images/asmLab/lab1_jpg" alt="LAB1_3 Result"></p>
+</li>
+<li><p>向内存从B8100H开始的单元中填写数据，如：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"> -e B810:0000 01 01 02 02 03 03 04 04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p> 请读者先填写不同的数据，观察产生的现象；再改变填写的地址，观察产生的现象。<br> 提示，如果读者对实验的结果感到疑惑，请仔细阅读第1章中的1.15节。<br> 注：显存区域，结果略</p>
+</li>
+</ol>
+<h2 id="实验2-用机器指令和汇编指令编程"><a href="#实验2-用机器指令和汇编指令编程" class="headerlink" title="实验2 用机器指令和汇编指令编程"></a>实验2 用机器指令和汇编指令编程</h2><ul>
+<li>睡觉先</li>
+</ul>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -510,7 +532,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jiabi.tech/2020/03/24/xie-gei-xue-di-xue-mei/">http://jiabi.tech/2020/03/24/xie-gei-xue-di-xue-mei/</a>
+                    <a href="http://jiabi.tech/2020/04/13/assemblylanguage-lab/">http://jiabi.tech/2020/04/13/assemblylanguage-lab/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -548,8 +570,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/idea/">
-                                    <span class="chip bg-color">idea</span>
+                                <a href="/tags/ASM/">
+                                    <span class="chip bg-color">ASM</span>
+                                </a>
+                            
+                                <a href="/tags/LAB/">
+                                    <span class="chip bg-color">LAB</span>
                                 </a>
                             
                         </div>
@@ -595,7 +621,7 @@
         repo: 'ChiuJun.github.io',
         owner: 'ChiuJun',
         admin: "ChiuJun",
-        id: '2020-03-24T01-53-29',
+        id: '2020-04-13T01-32-21',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -616,53 +642,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/03/24/front-matter-jie-shao/">
+                <a href="/2020/04/13/assemblylanguage-lab/">
                     <div class="card-image">
                         
-                        <img src="http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/code.jpg" class="responsive-img" alt="Front-matter介绍">
+                        <img src="http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/asm3e.jpg" class="responsive-img" alt="Assembly Language Lab">
                         
-                        <span class="card-title">Front-matter介绍</span>
+                        <span class="card-title">Assembly Language Lab</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于Front-matter，方便查看
+                            记录王爽汇编语言第三版实验相关
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Refer/" class="post-category">
-                                    Refer
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    计算机基础
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BD%AC%E8%BD%BD/">
-                        <span class="chip bg-color">转载</span>
+                    <a href="/tags/ASM/">
+                        <span class="chip bg-color">ASM</span>
                     </a>
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%91%98%E5%BD%95/">
-                        <span class="chip bg-color">摘录</span>
+                    <a href="/tags/LAB/">
+                        <span class="chip bg-color">LAB</span>
                     </a>
                     
                 </div>
@@ -676,30 +700,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/24/nit-jiao-wu-xi-tong-xiu-fu-cha-jian/">
+                <a href="/2020/04/09/phonenet-bug-fix-log/">
                     <div class="card-image">
                         
-                        <img src="http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/jw_repair.jpg" class="responsive-img" alt="NIT教务系统修复插件">
+                        <img src="http://q7qon7hdm.bkt.clouddn.com/medias/featureimages/ssm.jpg" class="responsive-img" alt="PhoneNet 日志">
                         
-                        <span class="card-title">NIT教务系统修复插件</span>
+                        <span class="card-title">PhoneNet 日志</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            如何使用插件，方便同学阅读
+                            PhoneNet Bugfix Log
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9A%8F%E7%AC%94/" class="post-category">
-                                    随笔
+                            <a href="/categories/J2EE%E8%AF%BE%E7%A8%8B/" class="post-category">
+                                    J2EE课程
                                 </a>
                             
                             
@@ -709,8 +733,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/README/">
-                        <span class="chip bg-color">README</span>
+                    <a href="/tags/PhoneNet/">
+                        <span class="chip bg-color">PhoneNet</span>
+                    </a>
+                    
+                    <a href="/tags/Log/">
+                        <span class="chip bg-color">Log</span>
                     </a>
                     
                 </div>

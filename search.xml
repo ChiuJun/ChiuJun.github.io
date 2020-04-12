@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Assembly Language Lab</title>
+      <link href="/2020/04/13/assemblylanguage-lab/"/>
+      <url>/2020/04/13/assemblylanguage-lab/</url>
+      
+        <content type="html"><![CDATA[<h1 id="王爽《汇编语言》第三版-实验"><a href="#王爽《汇编语言》第三版-实验" class="headerlink" title="王爽《汇编语言》第三版 实验"></a>王爽《汇编语言》第三版 实验</h1><blockquote><p>以后用到的知识 以后再说  </p></blockquote><blockquote><p>久闻大名，未曾拜读<br>    这次趁着微机课程，解去心头之痒<br>    顺便博客刚开，就随手记录下书本上的实验  </p></blockquote><pre class="line-numbers language-bash"><code class="language-bash">C:\<span class="token operator">></span>ver MS-DOS Version 6.22  C:\MASM<span class="token operator">></span>masmMicrosoft <span class="token punctuation">(</span>R<span class="token punctuation">)</span> MASM Compatibility Driver Version 6.11  Copyright <span class="token punctuation">(</span>C<span class="token punctuation">)</span> Microsoft Corp 1993.  A1l rights reserved.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="实验1-查看CPU和内存，用机器指令和汇编指令编程"><a href="#实验1-查看CPU和内存，用机器指令和汇编指令编程" class="headerlink" title="实验1 查看CPU和内存，用机器指令和汇编指令编程"></a>实验1 查看CPU和内存，用机器指令和汇编指令编程</h2><ol><li><p>使用Debug，将下面的程序段写入内存，逐条执行，观察每条指令执行后，CPU中相关寄存器的变化。  </p><ul><li>提示，可用E命令和A命令以两种方式将指令写入内存。注意用T命令执行时，CS:IP的指向。</li><li>注：这里略去其他寄存器的变化<pre class="line-numbers language-x86asm"><code class="language-x86asm">mov ax,4e20h    ;ax=4e20hadd ax,1416h    ;ax=6236hmov bx,2000h    ;bx=2000hadd ax,bx        ;ax=8236hmov bx,ax        ;bx=8236hadd ax,bx        ;ax=046chmov ax,001ah    ;ax=001ahmov bx,0026h    ;bx=0026hadd al,bl        ;ax=0040hadd ah,bl        ;ax=2640hadd bh,al        ;bx=4026hmov ah,0        ;ax=0040hadd al,bl        ;ax=0066hadd al,9ch        ;ax=0002h<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul></li><li><p>将下面3条指令写入从2000:0开始的内存单元中，利用这3条指令计算2的8次方。</p><pre class="line-numbers language-x86asm"><code class="language-x86asm"> ;2^8=256=100h mov ax, 1 add ax, ax jmp 2000:0003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p> 每次执行 add ax,ax 相当于将ax乘2，重复执行该条指令8次即可。</p></li><li><p>查看内存中的内容。<br> PC机主板上的ROM写有一个生产日期，在内存FFF00H～FFFFFH的某几个单元中，请找到这个生产日期并试图改变它。<br> 提示，如果读者对实验的结果感到疑惑，请仔细阅读第1章中的1.15节。<br> 结果如图：04/13/18，只读不可改写<br> <img src="http://q7qon7hdm.bkt.clouddn.com/images/asmLab/lab1_jpg" alt="LAB1_3 Result"></p></li><li><p>向内存从B8100H开始的单元中填写数据，如：</p><pre class="line-numbers language-bash"><code class="language-bash"> -e B810:0000 01 01 02 02 03 03 04 04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p> 请读者先填写不同的数据，观察产生的现象；再改变填写的地址，观察产生的现象。<br> 提示，如果读者对实验的结果感到疑惑，请仔细阅读第1章中的1.15节。<br> 注：显存区域，结果略</p></li></ol><h2 id="实验2-用机器指令和汇编指令编程"><a href="#实验2-用机器指令和汇编指令编程" class="headerlink" title="实验2 用机器指令和汇编指令编程"></a>实验2 用机器指令和汇编指令编程</h2><ul><li>睡觉先</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ASM </tag>
+            
+            <tag> LAB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PhoneNet 日志</title>
       <link href="/2020/04/09/phonenet-bug-fix-log/"/>
       <url>/2020/04/09/phonenet-bug-fix-log/</url>
