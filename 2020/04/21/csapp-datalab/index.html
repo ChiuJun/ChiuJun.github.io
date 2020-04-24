@@ -452,7 +452,7 @@
   <span class="token comment" spellcheck="true">#include &lt;bits/libc-header-start.h></span>
           ^~~~~~~~~~~~~~~~~~~~~~~~~~
   compilation terminated.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-  所以这里需要安装相关的库<br>  另外WSL不支持32位程序，所以用qemu-user-i386来跑32位程序<pre class="line-numbers language-bash"><code class="language-bash">  <span class="token function">sudo</span> <span class="token function">service</span> binfmt-support start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+  所以这里需要安装相关的库<br>  另外WSL不支持32位程序，所以用qemu-user-i386来跑32位程序<pre class="line-numbers language-bash"><code class="language-bash">  $ <span class="token function">sudo</span> <span class="token function">service</span> binfmt-support start<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li>自己下载材料的话<br>  通过dlc检测是否符合编码规则<br>  通过btest检测结果是否正确以及进行打分<br>  像”Beat the Prof”、BDD是没有的</li>
 <li>附赠了两辅助工具ishow，fshow，虽然我觉得微软自带的计算器比ishow好用（逃</li>
