@@ -420,7 +420,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-24
+                    2020-04-25
                 </div>
                 
 
@@ -2128,7 +2128,7 @@ end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 <ul>
 <li><p>不得不说，这本书的曲线是相当顺滑的<br>在实验13.3中，王爽老师把实验14可能要用到的技巧以实验的形式呈现</p>
 </li>
-<li><p>博主出了个挺搞笑的Bug，因为忘记加上”inc si”<br>导致显示的时间是”20/20/20 20:20:20”,还觉得好巧 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8">😂</span></p>
+<li><p>博主出了个挺搞笑的Bug，因为忘记加上”inc si”<br>导致显示的时间是”20/20/20 20:20:20”,还觉得好巧 :joy:</p>
 </li>
 <li><p>查验结果是否正确可以用date与time命令</p>
 <pre class="line-numbers language-x86asm"><code class="language-x86asm">assume cs:code
@@ -2211,6 +2211,87 @@ end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 </li>
 </ul>
 <h2 id="实验-15-安装新的int9中断例程"><a href="#实验-15-安装新的int9中断例程" class="headerlink" title="实验 15 安装新的int9中断例程"></a>实验 15 安装新的int9中断例程</h2><ul>
+<li>安装一个新的int 9中断例程<br>  功能：在DOS下，按下’A’键后，除非不再松开，如果松开，就显示满屏幕的’A’，其他键照常处理。</li>
+<li>这里没有写恢复中断向量的程序，感觉用了这个会被逼疯掉 233</li>
+</ul>
+<pre class="line-numbers language-x86asm"><code class="language-x86asm">assume cs:code
+
+stack segment
+    dw 20h dup (0)
+stack ends
+
+code segment
+
+start:
+    mov ax,stack
+    mov ss,ax
+    mov sp,20h
+
+    push cs
+    pop ds
+
+    mov ax,0
+    mov es,ax
+    mov di,200h
+
+    push es:[4*9]
+    pop es:[di]
+    add di,2
+    push es:[4*9+2]
+    pop es:[di]
+    add di,2
+
+    mov si,newInt9
+    mov cx,newInt9End-newInt9
+    cld
+    rep movsb
+
+    cli
+    mov word ptr es:[4*9],204h
+    mov word ptr es:[4*9+2],0
+    sti
+
+    mov ax,4c00h
+    int 21h
+
+newInt9:
+    push ax
+    push bx
+    push cx
+    push es
+
+    in al,60h
+
+    pushf
+    call dword ptr cs:[200h]
+
+    cmp al,10011110b
+    jne notA
+
+    mov ax,0b800h
+    mov es,ax
+    mov bx,0
+    mov cx,2000
+    s:
+        mov byte ptr es:[bx],41h
+        inc bx
+        mov byte ptr es:[bx],2
+        inc bx
+    loop s
+
+notA:
+    pop es
+    pop cx
+    pop bx
+    pop ax
+    iret
+newInt9End:
+    nop;
+
+code ends
+
+end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="实验-16-编写包含多个功能子程序的中断例程"><a href="#实验-16-编写包含多个功能子程序的中断例程" class="headerlink" title="实验 16 编写包含多个功能子程序的中断例程"></a>实验 16 编写包含多个功能子程序的中断例程</h2><ul>
 <li>未完</li>
 </ul>
 <script>
