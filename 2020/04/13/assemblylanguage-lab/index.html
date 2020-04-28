@@ -384,12 +384,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ASM/">
-                                <span class="chip bg-color">ASM</span>
-                            </a>
-                        
                             <a href="/tags/LAB/">
                                 <span class="chip bg-color">LAB</span>
+                            </a>
+                        
+                            <a href="/tags/ASM/">
+                                <span class="chip bg-color">ASM</span>
                             </a>
                         
                     </div>
@@ -420,7 +420,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-27
+                    2020-04-28
                 </div>
                 
 
@@ -2485,6 +2485,193 @@ code ends
 
 end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="实验-17-编写包含多个功能子程序的中断例程"><a href="#实验-17-编写包含多个功能子程序的中断例程" class="headerlink" title="实验 17 编写包含多个功能子程序的中断例程"></a>实验 17 编写包含多个功能子程序的中断例程</h2><ul>
+<li>安装一个新的int 7ch中断例程，实现通过逻辑扇区号对软盘进行读写。<br>  参数说明：<ol>
+<li>用AH寄存器传递功能号：0表示读 1表示写；</li>
+<li>用DX寄存器传递要读写的扇区的逻辑扇区号(0-2879)；</li>
+<li>用ES:BX指向存储读出数据或写入数据的内存区。</li>
+</ol>
+</li>
+<li>遇到的Bug：<br>  因为是直接复制用的<a href="#toc-heading-18">实验 16</a>的框架<br>  其中第15行开始，修改了BX的值，而BX又是int 7ch的参数，但是没有在调用子程序之前恢复其值<br>  导致向软盘写入数据的时候，偏移地址不对，会少写两个字节的数据。<br>  还是要注意保护寄存器的值啊！</li>
+</ul>
+<pre class="line-numbers language-x86asm"><code class="language-x86asm">assume cs:code
+
+data segment
+    db 'Test int7ch:read from floppy sectors.','$'
+data ends
+
+backup segment
+    db 512 dup (0)
+backup ends
+
+stack segment
+    dw 20h dup (0)
+stack ends
+
+code segment
+
+start:
+    mov ax,stack
+    mov ss,ax
+    mov sp,20h
+
+    push cs
+    pop ds
+    mov si,int7c
+    mov ax,0
+    mov es,ax
+    mov di,200h
+
+    mov cx,int7cEnd-int7c
+    cld
+    rep movsb
+
+    ;install int 7ch
+    mov ax,0
+    mov es,ax
+    mov word ptr es:[4*7ch],200h
+    mov word ptr es:[4*7ch+2],0
+
+    ;test int 7ch
+
+    ;backup sector 1024
+    mov ax,backup
+    mov es,ax
+
+    mov ah,0
+    mov dx,1024
+    mov bx,0
+    int 7ch
+
+    push es
+    ;test begin
+    mov ax,data
+    mov es,ax
+    mov ds,ax
+
+    mov ah,2
+    mov bh,0
+    mov dh,8
+    mov dl,30
+    int 10h
+    mov ah,9
+    mov dx,0
+    int 21h
+
+    mov ah,1
+    mov dx,1024
+    mov bx,0
+    int 7ch
+
+    ;change data
+    mov byte ptr es:[0],'!'
+
+    mov ah,0
+    mov dx,1024
+    mov bx,0
+    int 7ch
+
+    mov ah,2
+    mov bh,0
+    mov dh,12
+    mov dl,30
+    int 10h
+    mov ah,9
+    mov dx,0
+    int 21h
+
+    ;test end
+    pop es
+
+    ;recovery sector 1024
+    mov ah,1
+    mov dx,1024
+    mov bx,0
+    int 7ch
+
+    mov ax,4c00h
+    int 21h
+
+    org 200h
+int7c:
+    jmp short int7cBegin
+
+    table dw rSector,wSector
+
+    int7cBegin:
+        push si
+
+        cmp ah,1
+        ja int7cRet
+
+        push bx
+        mov bl,ah
+        mov bh,0
+        add bx,bx
+        mov si,bx
+        pop bx
+        call word ptr table[si]
+
+    int7cRet:
+        pop si
+    iret
+
+    rSector:
+        push ax
+        push cx
+        push dx
+
+        call getPhy
+        mov ah,2
+        mov al,1
+        int 13h
+
+        pop dx
+        pop cx
+        pop ax
+    ret
+
+    wSector:
+        push ax
+        push cx
+        push dx
+
+        call getPhy
+        mov ah,3
+        mov al,1
+        int 13h
+
+        pop dx
+        pop cx
+        pop ax
+    ret
+
+    getPhy:
+        mov ax,dx
+        mov dx,0
+        mov cx,1440
+        div cx
+        push ax ;storage int(dx/1440)
+
+        mov ax,dx
+        mov cl,18
+        div cl
+
+        mov ch,al
+        mov cl,ah
+        inc cl
+
+        pop dx
+        mov dh,dl
+        mov dl,0
+    ret
+
+int7cEnd:
+    nop
+
+code ends
+
+end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="课程设计-2"><a href="#课程设计-2" class="headerlink" title="课程设计 2"></a>课程设计 2</h2><ul>
 <li>未完</li>
 </ul>
 <script>
@@ -2568,12 +2755,12 @@ end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ASM/">
-                                    <span class="chip bg-color">ASM</span>
-                                </a>
-                            
                                 <a href="/tags/LAB/">
                                     <span class="chip bg-color">LAB</span>
+                                </a>
+                            
+                                <a href="/tags/ASM/">
+                                    <span class="chip bg-color">ASM</span>
                                 </a>
                             
                         </div>
@@ -2677,12 +2864,12 @@ end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/LAB/">
-                        <span class="chip bg-color">LAB</span>
-                    </a>
-                    
                     <a href="/tags/CSAPP/">
                         <span class="chip bg-color">CSAPP</span>
+                    </a>
+                    
+                    <a href="/tags/LAB/">
+                        <span class="chip bg-color">LAB</span>
                     </a>
                     
                 </div>
