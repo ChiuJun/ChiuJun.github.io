@@ -424,7 +424,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-02
+                    2020-05-06
                 </div>
                 
 
@@ -718,7 +718,73 @@ code ends
 
 end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="三、实验结果分析及实验报告-3"><a href="#三、实验结果分析及实验报告-3" class="headerlink" title="三、实验结果分析及实验报告"></a>三、实验结果分析及实验报告</h3><p><img src="http://q9apk9x38.bkt.clouddn.com/images/TPoM-IT-LAB/MPLAB4.JPG" alt="LAB4 Result"></p>
-<h2 id="实验六-判断闰年的程序设计"><a href="#实验六-判断闰年的程序设计" class="headerlink" title="实验六 判断闰年的程序设计"></a>实验六 判断闰年的程序设计</h2><h3 id="一、实验内容及要求-4"><a href="#一、实验内容及要求-4" class="headerlink" title="一、实验内容及要求"></a>一、实验内容及要求</h3><ul>
+<h2 id="实验五-系统中断调用"><a href="#实验五-系统中断调用" class="headerlink" title="实验五 系统中断调用"></a>实验五 系统中断调用</h2><h3 id="一、实验内容及要求-4"><a href="#一、实验内容及要求-4" class="headerlink" title="一、实验内容及要求"></a>一、实验内容及要求</h3><ul>
+<li>实验目的：<br>  掌握中断程序的概念以及如何响应中断</li>
+<li>编写程序：<br>  编写0号中断的处理程序，使得除法溢出发生时，在屏幕中间显示字符串”overflow!”，然后返回到DOS。</li>
+</ul>
+<h3 id="二、实验原理及步骤-4"><a href="#二、实验原理及步骤-4" class="headerlink" title="二、实验原理及步骤"></a>二、实验原理及步骤</h3><pre class="line-numbers language-x86asm"><code class="language-x86asm">assume cs:code
+
+code segment
+
+start:
+    mov ax,cs
+    mov ds,ax
+    mov si,do0
+
+    mov ax,0
+    mov es,ax
+    mov di,200h
+
+    mov cx,do0end-do0
+    cld
+    rep movsb
+
+    mov word ptr es:[4*0],200h
+    mov word ptr es:[4*0+2],0
+
+    ;test
+    mov ax,1
+    mov cl,0
+    div cl
+
+    mov ax,4c00h
+    int 21h
+
+do0:
+    jmp do0start
+    db "overflow!"
+do0start:
+    mov ax,cs
+    mov ds,ax
+    mov si,202h
+
+    mov ax,0b800h
+    mov es,ax
+    mov di,12*160+34*2
+
+    mov cx,9
+    S:
+    mov al,[si]
+    mov es:[di],al
+    inc di
+    mov byte ptr es:[di],2
+    inc di
+    inc si    
+    loop s
+
+    mov ax,4c00h
+    int 21h
+do0end:
+    nop
+
+code ends
+
+end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="三、实验结果分析及实验报告-4"><a href="#三、实验结果分析及实验报告-4" class="headerlink" title="三、实验结果分析及实验报告"></a>三、实验结果分析及实验报告</h3><ul>
+<li>这个实验其实就是王爽《汇编语言》第三版中12.7的内容，博主直接把<a href="https://jiabi.tech/2020/04/13/assemblylanguage-lab/#toc-heading-14">实验 12</a>搬过来了<del>(￣▽￣)</del>*  </li>
+</ul>
+<p><img src="http://q9apk9x38.bkt.clouddn.com/images/TPoM-IT-LAB/MPLAB5.JPG" alt="LAB5 Result"></p>
+<h2 id="实验六-判断闰年的程序设计"><a href="#实验六-判断闰年的程序设计" class="headerlink" title="实验六 判断闰年的程序设计"></a>实验六 判断闰年的程序设计</h2><h3 id="一、实验内容及要求-5"><a href="#一、实验内容及要求-5" class="headerlink" title="一、实验内容及要求"></a>一、实验内容及要求</h3><ul>
 <li>实验目的：<ol>
 <li>掌握子程序设计的基本方法<br>包括子程序的定义、调用和返回，<br>子程序中如何保护和恢复现场，<br>主程序与子程序之间如何传送参数</li>
 <li>学习如何进行数据转换的处理方法</li>
@@ -731,7 +797,7 @@ end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 </ol>
 </li>
 </ul>
-<h3 id="二、实验原理及步骤-4"><a href="#二、实验原理及步骤-4" class="headerlink" title="二、实验原理及步骤"></a>二、实验原理及步骤</h3><pre class="line-numbers language-x86asm"><code class="language-x86asm">aassume cs:code,ds:data
+<h3 id="二、实验原理及步骤-5"><a href="#二、实验原理及步骤-5" class="headerlink" title="二、实验原理及步骤"></a>二、实验原理及步骤</h3><pre class="line-numbers language-x86asm"><code class="language-x86asm">aassume cs:code,ds:data
 
 stack segment
     dw 20h dup (0)
@@ -996,7 +1062,7 @@ ret
 code ends
 
 end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="三、实验结果分析及实验报告-4"><a href="#三、实验结果分析及实验报告-4" class="headerlink" title="三、实验结果分析及实验报告"></a>三、实验结果分析及实验报告</h3><ul>
+<h3 id="三、实验结果分析及实验报告-5"><a href="#三、实验结果分析及实验报告-5" class="headerlink" title="三、实验结果分析及实验报告"></a>三、实验结果分析及实验报告</h3><ul>
 <li>这里假设输入的年份∈(0,2^16-1)</li>
 <li>对非法输入进行了有效检测，包括负值，过大的值，非数字</li>
 <li>对mul产生cf更正了认知，注意到div的overflow</li>
