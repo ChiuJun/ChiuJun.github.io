@@ -262,7 +262,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('http://q9apk9x38.bkt.clouddn.com/medias/featureimages/asm.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('http://bucket.jiabi.tech/medias/featureimages/asm.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -420,7 +420,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-05-09
+                    2020-07-17
                 </div>
                 
 
@@ -475,7 +475,7 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
  jmp 2000:0003<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p> 每次执行 add ax,ax 相当于将ax乘2，重复执行该条指令8次即可。</p>
 </li>
-<li><p>查看内存中的内容。<br> PC机主板上的ROM写有一个生产日期，在内存FFF00H～FFFFFH的某几个单元中，请找到这个生产日期并试图改变它。<br> 提示，如果读者对实验的结果感到疑惑，请仔细阅读第1章中的1.15节。<br> 结果如图：04/13/18，只读不可改写<br> <img src="http://q9apk9x38.bkt.clouddn.com/images/asmLab/lab1_3.jpg" alt="LAB1_3 Result"></p>
+<li><p>查看内存中的内容。<br> PC机主板上的ROM写有一个生产日期，在内存FFF00H～FFFFFH的某几个单元中，请找到这个生产日期并试图改变它。<br> 提示，如果读者对实验的结果感到疑惑，请仔细阅读第1章中的1.15节。<br> 结果如图：04/13/18，只读不可改写<br> <img src="http://bucket.jiabi.tech/images/asmLab/lab1_3.jpg" alt="LAB1_3 Result"></p>
 </li>
 <li><p>向内存从B8100H开始的单元中填写数据，如：  </p>
 <pre class="line-numbers language-bash"><code class="language-bash"> -e B810:0000 01 01 02 02 03 03 04 04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -505,7 +505,7 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
  push [4]    ;sp = 00FE; 修改的内存单元的地址是 220FE 内容为 30F0
  push [6]    ;sp = 00FC; 修改的内存单元的地址是 220FC 内容为 2F34<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>仔细观察图3.19中的实验过程，然后分析：为什么2000:0～2000:f中的内容会发生改变？<br> <img src="http://q9apk9x38.bkt.clouddn.com/images/asmLab/img3.19.jpg" alt="IMG 3.19"><br> 在使用T命令进行单步追踪的时候，产生了中断，CS和IP等寄存器依此入栈，导致了内存相关位置内容的改变。</p>
+<li><p>仔细观察图3.19中的实验过程，然后分析：为什么2000:0～2000:f中的内容会发生改变？<br> <img src="http://bucket.jiabi.tech/images/asmLab/img3.19.jpg" alt="IMG 3.19"><br> 在使用T命令进行单步追踪的时候，产生了中断，CS和IP等寄存器依此入栈，导致了内存相关位置内容的改变。</p>
 </li>
 </ol>
 <h2 id="实验-3-编程、编译、连接、跟踪"><a href="#实验-3-编程、编译、连接、跟踪" class="headerlink" title="实验 3 编程、编译、连接、跟踪"></a>实验 3 编程、编译、连接、跟踪</h2><ol>
@@ -534,7 +534,7 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
 <li><p>用Debug跟踪 t1.exe 的执行过程，写出每一步执行后，相关寄存器中的内容和栈顶的内容。<br> 结果略</p>
 </li>
 <li><p>PSP的头两个字节是CD 20，用Debug加载 t1.exe，查看PSP的内容。<br> 注：这里应该是”-u 0A67:0”  </p>
-<pre><code> 即 0A67 = CS-0010h  </code></pre><p> <img src="http://q9apk9x38.bkt.clouddn.com/images/asmLab/lab3_result_u_ds.jpg" alt="PSP"></p>
+<pre><code> 即 0A67 = CS-0010h  </code></pre><p> <img src="http://bucket.jiabi.tech/images/asmLab/lab3_result_u_ds.jpg" alt="PSP"></p>
 </li>
 </ol>
 <h2 id="实验-4-bx-和loop的使用"><a href="#实验-4-bx-和loop的使用" class="headerlink" title="实验 4 [bx]和loop的使用"></a>实验 4 [bx]和loop的使用</h2><ol>
@@ -887,11 +887,11 @@ Copyright <span class="token punctuation">(</span>C<span class="token punctuatio
  codeseg ends
 
  end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p> <img src="http://q9apk9x38.bkt.clouddn.com/images/asmLab/lab6_2_result.jpg" alt="LAB6_2 Result"></p>
+<p> <img src="http://bucket.jiabi.tech/images/asmLab/lab6_2_result.jpg" alt="LAB6_2 Result"></p>
 </li>
 </ol>
 <h2 id="实验-7-寻址方式在结构化数据访问中的应用"><a href="#实验-7-寻址方式在结构化数据访问中的应用" class="headerlink" title="实验 7 寻址方式在结构化数据访问中的应用"></a>实验 7 寻址方式在结构化数据访问中的应用</h2><ul>
-<li><p>编程，将 data 段中的数据按如下格式写入到 table 段中，并计算21年中的人均收入(取整)，结果也按照下面的格式保存在table段中。<br>  <img src="http://q9apk9x38.bkt.clouddn.com/images/asmLab/lab7_format.jpg" alt="LAB7 格式"><br>  编写完之后，博主觉得这样的写法更容易出错，在书上记下了一个简单易懂的想法，之后在<a href="#toc-heading-12">课程设计 1</a>重新进行了编写。<br>  编写这个程序遇到一个新手容易忘记的问题：  </p>
+<li><p>编程，将 data 段中的数据按如下格式写入到 table 段中，并计算21年中的人均收入(取整)，结果也按照下面的格式保存在table段中。<br>  <img src="http://bucket.jiabi.tech/images/asmLab/lab7_format.jpg" alt="LAB7 格式"><br>  编写完之后，博主觉得这样的写法更容易出错，在书上记下了一个简单易懂的想法，之后在<a href="#toc-heading-12">课程设计 1</a>重新进行了编写。<br>  编写这个程序遇到一个新手容易忘记的问题：  </p>
 <ul>
 <li><p>mov 指令不能在两个存储单元之间直接传送数据  </p>
 <p>以下是旧版本的代码：</p>
@@ -1086,7 +1086,7 @@ loop row
 code ends
 
 end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="http://q9apk9x38.bkt.clouddn.com/images/asmLab/lab9_result.jpg" alt="LAB9 Result"></p>
+<p><img src="http://bucket.jiabi.tech/images/asmLab/lab9_result.jpg" alt="LAB9 Result"></p>
 </li>
 </ul>
 </li>
@@ -1735,7 +1735,7 @@ ret
 code ends
 
 end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="http://q9apk9x38.bkt.clouddn.com/images/asmLab/CourseDesign1.jpg" alt="Course Design 1"></p>
+<p><img src="http://bucket.jiabi.tech/images/asmLab/CourseDesign1.jpg" alt="Course Design 1"></p>
 <h2 id="实验-11-编写子程序"><a href="#实验-11-编写子程序" class="headerlink" title="实验 11 编写子程序"></a>实验 11 编写子程序</h2><ul>
 <li>编写一个子程序，将包含任意字符，以 0 结尾的字符串中的小写字母转变成大写字母，描述如下。<br>  名称：letterc<br>  功能：将以 0 结尾的字符串中的小写字母转变成大写字母<br>  参数：ds:si指向字符串首地址  </li>
 </ul>
@@ -3516,7 +3516,7 @@ end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
                 <a href="/2020/04/21/csapp-datalab/">
                     <div class="card-image">
                         
-                        <img src="http://q9apk9x38.bkt.clouddn.com/medias/featureimages/csapp_b.jpg" class="responsive-img" alt="深入理解计算机系统 DataLab">
+                        <img src="http://bucket.jiabi.tech/medias/featureimages/csapp_b.jpg" class="responsive-img" alt="深入理解计算机系统 DataLab">
                         
                         <span class="card-title">深入理解计算机系统 DataLab</span>
                     </div>
@@ -3568,7 +3568,7 @@ end start<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
                 <a href="/2020/04/09/phonenet-bug-fix-log/">
                     <div class="card-image">
                         
-                        <img src="http://q9apk9x38.bkt.clouddn.com/medias/featureimages/ssm.jpg" class="responsive-img" alt="PhoneNet 日志">
+                        <img src="http://bucket.jiabi.tech/medias/featureimages/ssm.jpg" class="responsive-img" alt="PhoneNet 日志">
                         
                         <span class="card-title">PhoneNet 日志</span>
                     </div>
